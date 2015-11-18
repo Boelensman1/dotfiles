@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # install vundle
-DIRECTORY=~/.vim/bundle/Vundle.vim
+DIRECTORY=~/.dotfiles/vim/bundle/Vundle.vim
 if [ ! -d "$DIRECTORY" ]; then
     git clone git://github.com/gmarik/vundle.git $DIRECTORY
 fi
@@ -13,6 +13,6 @@ vim +PluginInstall! +qall
 echo "Do you want to compile YouCompleteMe (y/n)?"
 read answer
 if echo "$answer" | grep -iq "^y" ;then
-    cd ~/.vim/bundle/YouCompleteMe
+    cd ~/.dotfiles/vim/bundle/YouCompleteMe
     ./install.py --clang-completer
 fi
