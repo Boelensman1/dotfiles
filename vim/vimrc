@@ -5,14 +5,13 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
+call vundle#begin('~/.dotfiles/vim/bundle')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 
 " ----PLUGINS----
 Plugin 'tpope/vim-sensible'
@@ -65,21 +64,21 @@ set modeline
 
 " swap files (.swp) in a common location
 " // means use the file's full path
-set dir=~/.vim/_swap//
+set dir=~/.dotfiles/vim/_swap//
 
 " backup files (~) in a common location if possible
 set backup
-set backupdir=~/.vim/_backup/,~/tmp,.
+set backupdir=~/.dotfiles/vim/_backup/,~/tmp,.
 
 " turn on undo files, put them in a common location
 set undofile
-set undodir=~/.vim/_undo/
+set undodir=~/.dotfiles/vim/_undo/
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
-exe "normal mz"
-%s/\s\+$//ge
-exe "normal `z"
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
@@ -91,10 +90,17 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 " load colorscheme
 " silent so we don't get errors when vundle is installing
 silent! colorscheme solarized 
-silent! so ~/.vim/bundle/vim-colors-solarized/autoload/togglebg.vim
+silent! so ~/.dotfiles/vim/bundle/vim-colors-solarized/autoload/togglebg.vim
 " switch to black background
 if has('gui_running')
-    set background=dark
+    ToggleBG
+else
+    if has("unix")
+        if system('uname')=~'Darwin'
+        else
+            ToggleBG
+        endif
+    endif
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -234,6 +240,17 @@ map <leader>pp :setlocal paste!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! GetRunningOS()
+    if has("win32")
+        return "win"
+    endif
+            return "mac"
+        else
+            return "linux"
+        endif
+    endif
+endfunction
+
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -273,20 +290,20 @@ endfunction
 " Don't close window, when deleting a buffer
 command! Bclose call <SID>BufcloseCloseIt()
 function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
 
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
 
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
+    if bufnr("%") == l:currentBufNum
+        new
+    endif
 
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
 endfunction
