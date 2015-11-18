@@ -1,8 +1,0 @@
-My personal Vim config.
-
-Install using:
-git clone git@github.com:Boelensman1/vimconfig.git ~/.vim
-sh ~/.vim/setup.sh
-
-When vim version <7.4 execute this before the sh command:
-echo "runtime vimrc" > ~/.vimrc
