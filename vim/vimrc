@@ -25,6 +25,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'lervag/vimtex'
+Plugin 'tpope/vim-fugitive'
 " ----END PLUGINS----
 
 
@@ -187,6 +188,7 @@ set laststatus=2
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
