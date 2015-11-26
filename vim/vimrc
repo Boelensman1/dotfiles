@@ -25,6 +25,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'lervag/vimtex'
+Plugin 'tpope/vim-fugitive'
 " ----END PLUGINS----
 
 
@@ -92,16 +93,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 silent! colorscheme solarized 
 silent! so ~/.dotfiles/vim/bundle/vim-colors-solarized/autoload/togglebg.vim
 " switch to black background
-if has('gui_running')
-    ToggleBG
-else
-    if has("unix")
-        if system('uname')=~'Darwin'
-        else
-            ToggleBG
-        endif
-    endif
-endif
+ToggleBG
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -196,6 +188,7 @@ set laststatus=2
 
 " Format the status line
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
