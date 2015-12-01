@@ -90,7 +90,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 " load colorscheme
 " silent so we don't get errors when vundle is installing
-silent! colorscheme solarized 
+silent! colorscheme solarized
 silent! so ~/.dotfiles/vim/bundle/vim-colors-solarized/autoload/togglebg.vim
 " switch to black background
 ToggleBG
@@ -157,17 +157,17 @@ set ruler
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -177,7 +177,7 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
@@ -252,7 +252,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
