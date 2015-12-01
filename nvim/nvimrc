@@ -1,52 +1,67 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.dotfiles/vim/bundle/Vundle.vim
-call vundle#begin('~/.dotfiles/vim/bundle')
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" Setting up vim-plug
+call plug#begin('~/.dotfiles/nvim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" -----------------------------------------------------------------
+" Language agnostic plugins
+" -----------------------------------------------------------------
 
-" ----PLUGINS----
-Plugin 'tpope/vim-sensible'
-Plugin 'raichoo/haskell-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
-Plugin 'tclem/vim-arduino'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'lervag/vimtex'
-Plugin 'tpope/vim-fugitive'
-" ----END PLUGINS----
+" sensible defaults
+Plug 'tpope/vim-sensible'
+" Color scheme
+Plug 'altercation/vim-colors-solarized'
+" Autocomplete
+Plug 'Shougo/deoplete.nvim'
+" Asynchronous maker and linter (needs linters to work)
+Plug 'benekastah/neomake', { 'on': ['Neomake'] }
+" Automatically closing stuff
+Plug 'cohama/lexima.vim'
+" filebrowser
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+" Highlight long lines
+Plug 'whatyouhide/vim-lengthmatters'
+" Autoformat files
+Plug 'Chiel92/vim-autoformat'
+" listen to editorconfig files
+Plug 'editorconfig/editorconfig-vim'
+
+" -----------------------------------------------------------------
+" JS (ES6, React)
+" -----------------------------------------------------------------
+
+" JS syntax
+Plug 'othree/yajs.vim'
+" JS libs syntax (React, Angular)
+Plug 'othree/javascript-libraries-syntax.vim'
+" JSX syntax (needs vim-javascript for indentation)
+Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
+" JSON syntax
+Plug 'sheerun/vim-json'
+
+" -----------------------------------------------------------------
+" HTML/CSS
+" -----------------------------------------------------------------
+
+" HTML5 syntax
+Plug 'othree/html5.vim'
+" SCSS syntax
+Plug 'cakebaker/scss-syntax.vim'
+" Sparkup, emmet alternative (<C-e> to expand expression)
+Plug 'rstacruz/sparkup', { 'for': ['html', 'xhtml', 'eruby'] }
+" CSS color highlighter
+Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
 
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Add plugins to &runtimepath
+call plug#end()
 
-" vundle setup completed, personal below
 
-syntax enable
+" run sensible immediatly so we can overwrite some of it settings
+runtime plugin/sensible.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => General
@@ -65,15 +80,26 @@ set modeline
 
 " swap files (.swp) in a common location
 " // means use the file's full path
-set dir=~/.dotfiles/vim/_swap//
+set dir=~/.dotfiles/nvim/_swap//
 
 " backup files (~) in a common location if possible
 set backup
-set backupdir=~/.dotfiles/vim/_backup/,~/tmp,.
+set backupdir=~/.dotfiles/nvim/_backup/,~/tmp,.
 
 " turn on undo files, put them in a common location
 set undofile
-set undodir=~/.dotfiles/vim/_undo/
+set undodir=~/.dotfiles/nvim/_undo/
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Use smartcase.
+let g:deoplete#enable_smart_case = 1
+
+" Use tab to autocomplete
+inoremap <silent><expr><Tab>
+		\ pumvisible() ? "\<C-n>" :
+		\ deoplete#mappings#manual_complete()
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
@@ -85,15 +111,44 @@ autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  => Linter settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Autocheck files on save
+autocmd! BufWritePost * Neomake
+
+" javascript
+
+let g:neomake_javascript_enabled_makers = ['eslint']
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " load colorscheme
 " silent so we don't get errors when vundle is installing
 silent! colorscheme solarized 
-silent! so ~/.dotfiles/vim/bundle/vim-colors-solarized/autoload/togglebg.vim
-" switch to black background
-ToggleBG
+silent! so ~/.dotfiles/nvim/bundle/vim-colors-solarized/autoload/togglebg.vim
+
+function! AutoSetSolarized()
+    if strftime("%H") >= 5 && strftime("%H") <= 17
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+
+if has("gui_running")  
+    call AutoSetSolarized()
+
+    " call autosetsolarized on saving a file so the colourscheme updates
+    " currently disables because it makes the screen flicker
+    "if has("autocmd")
+    "    autocmd bufwritepost * call AutoSetSolarized()
+    "endif
+else  
+    set background=dark
+endif 
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
@@ -115,10 +170,6 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
-set lbr
-set tw=500
-
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
@@ -134,7 +185,7 @@ vnoremap <silent> # :call VisualSelection('b', '')<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pressing ,ss will toggle and untoggle spell checking
+" Pressing, ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
 " Shortcuts using <leader>
@@ -146,6 +197,11 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" don't display incomplete commands
+set noshowcmd
+
+" start scrolling before cursor at end
+set scrolloff=3
 
 " show line numbers
 set number
@@ -180,6 +236,12 @@ set tm=500
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+" better split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
@@ -200,23 +262,6 @@ let g:vimtex_latexmk_build_dir = './tmp'
 let g:vimtex_view_method = 'zathura'
 
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-"jsx
-let g:syntastic_javascript_checkers = ['eslint']
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
-"latex
-"let g:syntastic_tex_checkers = ['lacheck']
-let g:syntastic_tex_checkers = []
-
-
 autocmd Filetype yaml setlocal ts=4 sts=4 sw=4 et
 autocmd Filetype python command! R :w !python
 autocmd Filetype pascal command! R :w! /tmp/pascal.pas | !instantfpc /tmp/pascal.pas
@@ -224,6 +269,9 @@ autocmd Filetype pascal command! R :w! /tmp/pascal.pas | !instantfpc /tmp/pascal
 "arduino
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
+
+"Always open nerdtree
+let g:nerdtree_tabs_open_on_gui_startup=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
@@ -233,6 +281,10 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
+
+
+" quick open new tab
+map <LocalLeader>t :tabnew<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions

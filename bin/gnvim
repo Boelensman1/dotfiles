@@ -1,0 +1,5 @@
+#!/bin/sh
+binary="/Applications/Neovim.app/Contents/MacOS/Neovim"
+exec $binary -- ${1:+"$@"} &
+sleep 0.5
+osascript -e 'activate application "NeoVim"'

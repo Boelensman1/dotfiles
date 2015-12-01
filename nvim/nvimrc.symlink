@@ -1,1 +1,5 @@
+" set runtime path
+set rtp+=~/.dotfiles/nvim/
+
+" load the init file
 source ~/.dotfiles/nvim/nvimrc
