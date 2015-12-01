@@ -26,8 +26,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline'
 " ----END PLUGINS----
-
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -146,6 +146,7 @@ map <leader>s? z=
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=Menlo\ Regular\ for\ Powerline:h11
 
 " show line numbers
 set number
@@ -187,8 +188,7 @@ command W w !sudo tee % > /dev/null
 set laststatus=2
 
 " Format the status line
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
