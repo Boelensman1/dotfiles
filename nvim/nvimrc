@@ -20,11 +20,11 @@ Plug 'cohama/lexima.vim'
 " Autoformat files
 Plug 'Chiel92/vim-autoformat'
 " listen to editorconfig files
-Plug 'editorconfig/editorconf-vim'
+Plug 'editorconfig/editorconfig-vim'
 " CamelCase and snake_case motions
 Plug 'bkad/CamelCaseMotion'
 " File finding
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 " -----------------------------------------------------------------
 " Git related tools
@@ -163,7 +163,7 @@ function! AutoSetSolarized()
     endif
 endfunction
 
-if has("gui_running")
+if exists('neovim_dot_app') || has("gui_running")
     call AutoSetSolarized()
 
     " call autosetsolarized on saving a file so the colourscheme updates
@@ -306,7 +306,9 @@ let g:NERDTreeMinimalUI=1
 
 " Open NERDtree tab when in gui
 let g:nerdtree_tabs_open_on_gui_startup=1
-let g:nerdtree_tabs_open_on_console_startup=1
+if exists('neovim_dot_app') || has("gui_running")
+    let g:nerdtree_tabs_open_on_console_startup=1
+endif
 
 " Set the git icons
 let g:NERDTreeIndicatorMapCustom = {
