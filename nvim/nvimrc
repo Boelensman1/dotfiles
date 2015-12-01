@@ -297,10 +297,6 @@ autocmd Filetype pascal command! R :w! /tmp/pascal.pas | !instantfpc /tmp/pascal
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 
-" open a NERDTree automatically when vim starts up if no files were specifi
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " Use the minimal NERDtree layout (no help etc. on top)
 let g:NERDTreeMinimalUI=1
 
