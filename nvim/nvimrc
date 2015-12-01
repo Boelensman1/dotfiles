@@ -278,6 +278,10 @@ nnoremap <right> <nop>
 " More logical Y (defaul was alias for yy)
 nnoremap Y y$
 
+"give help some space on the left
+autocmd Filetype help setlocal foldcolumn=4
+autocmd Filetype nerdtree setlocal foldcolumn=1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
