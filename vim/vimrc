@@ -93,7 +93,7 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 silent! colorscheme solarized
 silent! so ~/.dotfiles/vim/bundle/vim-colors-solarized/autoload/togglebg.vim
 " switch to black background
-ToggleBG
+set background=dark
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
