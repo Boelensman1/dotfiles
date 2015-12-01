@@ -20,9 +20,11 @@ Plug 'cohama/lexima.vim'
 " Autoformat files
 Plug 'Chiel92/vim-autoformat'
 " listen to editorconfig files
-Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconf-vim'
 " CamelCase and snake_case motions
 Plug 'bkad/CamelCaseMotion'
+" File finding
+Plug 'kien/ctrlp.vim'
 
 " -----------------------------------------------------------------
 " Git related tools
@@ -37,17 +39,20 @@ Plug 'airblade/vim-gitgutter'
 " -----------------------------------------------------------------
 " Interface improving
 " -----------------------------------------------------------------
-
 " Nerdtree file browser
 Plug 'scrooloose/nerdtree'
 " Better tab addon for nerdtree
 Plug 'jistr/vim-nerdtree-tabs'
-" Lightline (simple status line)
-Plug 'itchyny/lightline.vim'
+" Show git status in tree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+" Status line
+Plug 'bling/vim-airline'
 " Highlight long lines
 Plug 'whatyouhide/vim-lengthmatters'
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
+" Icons
+Plug 'ryanoasis/vim-devicons'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
@@ -151,7 +156,7 @@ silent! colorscheme solarized
 silent! so ~/.dotfiles/nvim/bundle/vim-colors-solarized/autoload/togglebg.vim
 
 function! AutoSetSolarized()
-    if strftime("%H") >= 5 && strftime("%H") <= 17
+    if strftime("%H") >= 5 && strftime("%H") <= 16
         set background=light
     else
         set background=dark
@@ -171,7 +176,8 @@ else
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+set encoding=utf-8
+scriptencoding utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -235,8 +241,8 @@ set ignorecase
 " When searching try to be smart about cases
 set smartcase
 
-" Highlight search results
-set hlsearch
+" Don't highlight search results
+set nohlsearch
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -262,15 +268,20 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
+" disable arrow keys so I learn to use hjkl
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+
+" More logical Y (defaul was alias for yy)
+nnoremap Y y$
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin on
+filetype indent on
 
 "set grepprg=grep\ -nH\ $*
 let g:tex_flavor = 'latex'
@@ -286,8 +297,40 @@ autocmd Filetype pascal command! R :w! /tmp/pascal.pas | !instantfpc /tmp/pascal
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 
-"Always open nerdtree
+" open a NERDTree automatically when vim starts up if no files were specifi
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Use the minimal NERDtree layout (no help etc. on top)
+let g:NERDTreeMinimalUI=1
+
+" Open NERDtree tab when in gui
 let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_console_startup=1
+
+" Set the git icons
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  => Status/Lightline settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
+
+" don't show which mode we're in as the lightline shows it
+set noshowmode
+
+let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
