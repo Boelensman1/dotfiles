@@ -276,6 +276,17 @@ nnoremap <up> <nop>
 nnoremap <down> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
+" move logically up and down
+nnoremap j gj
+nnoremap k gk
+
+" use ; as :
+nnoremap ; :
 
 " More logical Y (defaul was alias for yy)
 nnoremap Y y$
