@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# show what i have to do
+gfind ~/Desktop/ -maxdepth 1 -type f \( ! -iname "desktop.ini" ! -iname ".*" \) -printf '[%TY-%Tm-%Td %.8TT] %f\n' | sort
