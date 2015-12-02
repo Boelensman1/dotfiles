@@ -23,8 +23,6 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'editorconfig/editorconfig-vim'
 " CamelCase and snake_case motions
 Plug 'bkad/CamelCaseMotion'
-" File finding
-Plug 'ctrlpvim/ctrlp.vim'
 
 " -----------------------------------------------------------------
 " Git related tools
@@ -39,20 +37,18 @@ Plug 'airblade/vim-gitgutter'
 " -----------------------------------------------------------------
 " Interface improving
 " -----------------------------------------------------------------
+
 " Nerdtree file browser
 Plug 'scrooloose/nerdtree'
 " Better tab addon for nerdtree
 Plug 'jistr/vim-nerdtree-tabs'
-" Show git status in tree
-Plug 'Xuyuanp/nerdtree-git-plugin'
 " Status line
-Plug 'bling/vim-airline'
+"Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " Highlight long lines
 Plug 'whatyouhide/vim-lengthmatters'
 " Color scheme
 Plug 'altercation/vim-colors-solarized'
-" Icons
-Plug 'ryanoasis/vim-devicons'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
@@ -163,7 +159,7 @@ function! AutoSetSolarized()
     endif
 endfunction
 
-if exists('neovim_dot_app') || has("gui_running")
+if has("gui_running")
     call AutoSetSolarized()
 
     " call autosetsolarized on saving a file so the colourscheme updates
@@ -176,8 +172,7 @@ else
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf-8
-scriptencoding utf-8
+set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -230,8 +225,7 @@ set noshowcmd
 set scrolloff=3
 
 " show line numbers
-set relativenumber
-
+set number
 
 " Always show current position
 set ruler
@@ -242,8 +236,8 @@ set ignorecase
 " When searching try to be smart about cases
 set smartcase
 
-" Don't highlight search results
-set nohlsearch
+" Highlight search results
+set hlsearch
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -269,24 +263,15 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" disable arrow keys so I learn to use hjkl
-nnoremap <up> <nop>
-nnoremap <down> <nop>
-nnoremap <left> <nop>
-nnoremap <right> <nop>
-
-" More logical Y (defaul was alias for yy)
-nnoremap Y y$
-
-"give help some space on the left
-autocmd Filetype help setlocal foldcolumn=4
-autocmd Filetype nerdtree setlocal foldcolumn=1
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin on
-filetype indent on
 
 "set grepprg=grep\ -nH\ $*
 let g:tex_flavor = 'latex'
@@ -302,38 +287,8 @@ autocmd Filetype pascal command! R :w! /tmp/pascal.pas | !instantfpc /tmp/pascal
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 
-" Use the minimal NERDtree layout (no help etc. on top)
-let g:NERDTreeMinimalUI=1
-
-" Open NERDtree tab when in gui
+"Always open nerdtree
 let g:nerdtree_tabs_open_on_gui_startup=1
-if exists('neovim_dot_app') || has("gui_running")
-    let g:nerdtree_tabs_open_on_console_startup=1
-endif
-
-" Set the git icons
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \ }
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"  => Status/Lightline settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-" don't show which mode we're in as the lightline shows it
-set noshowmode
-
-let g:airline_powerline_fonts = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
