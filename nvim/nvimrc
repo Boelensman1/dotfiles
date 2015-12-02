@@ -14,7 +14,7 @@ Plug 'tpope/vim-sensible'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
 " Asynchronous maker and linter (needs linters to work)
-Plug 'benekastah/neomake', { 'on': ['Neomake'] }
+Plug 'benekastah/neomake'
 " Automatically closing stuff
 Plug 'cohama/lexima.vim'
 " Autoformat files
@@ -236,7 +236,6 @@ set scrolloff=3
 
 " show line numbers
 set relativenumber
-
 
 " Always show current position
 set ruler
