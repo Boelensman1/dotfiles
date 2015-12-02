@@ -102,6 +102,9 @@ set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
 set undoreload=10000
 
+" save when losing focus
+au FocusLost * :wa
+
 " enable the modeline
 set modeline
 
