@@ -16,4 +16,5 @@
 set -e
 
 # Run our new web 2.0 todo list application and raise millions of VC dollars.
-touch ~/Desktop/"$*"
+touch ~/Desktop/"$(echo "$*" | gsed -e 's/^\(.\)/\u\1/')"
+echo "Saving the todo... Uploading to the cloud... Integrating in the mainframe... OK"
