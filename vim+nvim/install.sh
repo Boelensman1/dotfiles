@@ -7,6 +7,10 @@ if [ ! -d "$DIRECTORY" ]; then
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# install all other plugins
-vim +PlugInstall! +qall
-nvim +PlugInstall! +qall
+# install all other plugins, check if the commands exist first
+if type "vim" > /dev/null; then
+    vim +PlugInstall! +qall
+fi
+if type "nvim" > /dev/null; then
+    nvim +PlugInstall! +qall
+fi
