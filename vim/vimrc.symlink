@@ -1,1 +1,6 @@
+" Set runtime paths
+set rtp+=~/.dotfiles/vim/
+set rtp+=~/.dotfiles/vim+nvim/
+
+" Source the init script
 source ~/.dotfiles/vim/vimrc
