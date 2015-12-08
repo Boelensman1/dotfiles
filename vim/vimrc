@@ -92,8 +92,19 @@ runtime plugin/sensible.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Vim specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let os = substitute(system('uname'), "\n", "", "")
+
 " set font
 set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h11
+
+if os == "Linux"
+    " set font for linux
+    set guifont=Meslo\ LG\ S\ for\ Powerline\ 11
+    " make ctrlv work on linux
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
+endif
+
 " disable scrollbars
 set guioptions-=r
 set guioptions-=L
@@ -113,4 +124,5 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_tex_checkers = []
 
 " source the vim+nvim init file
+set rtp+=~/.dotfiles/vim+nvim/
 source ~/.dotfiles/vim+nvim/init.vim
