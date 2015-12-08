@@ -1,4 +1,36 @@
-#!/bin/sh
+#!/usr/bin/env python
+"""Module to show my todolist"""
 
-# show what i have to do
-gfind ~/Desktop/ -maxdepth 1 -type f \( ! -iname "desktop.ini" ! -iname ".*" \) -printf '[%TY-%Tm-%Td %.8TT] %f\n' | sort
+import os
+# import sys
+from datetime import datetime
+import optfunc
+
+IGNORE = ['$RECYCLE.BIN', '.DS_Store', '.localized', 'desktop.ini']
+
+
+def list_todo(reverse=False, fullpath=False, simple=False):
+    "Usage: %prog <options> - output todolist"
+    path = os.path.expanduser("~") + "/Desktop/"
+    files = []
+    for filename in os.listdir(path):
+        if filename not in IGNORE:
+            created = datetime.fromtimestamp(os.path.getctime(path+filename))
+            if fullpath:
+                filename = path + filename
+            files.append({'filename': filename, 'created': created})
+
+    # sort the files
+    files = sorted(files, key=lambda k: k['created'], reverse=reverse)
+
+    # output the files
+    for todo in files:
+        if simple:
+            print todo['filename']
+        else:
+            # format time
+            created = todo['created'].strftime('%a %b %d')
+            print '[{0}] - {1}'.format(created, todo['filename'])
+
+if __name__ == '__main__':
+    optfunc.run(list_todo)
