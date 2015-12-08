@@ -201,6 +201,8 @@ let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_build_dir = './tmp'
 let g:vimtex_view_method = 'zathura'
 
+" disable lengthmatters (higlighting of long lines)
+let g:lengthmatters_excluded = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree', 'help', 'qf', 'tex']
 
 autocmd Filetype yaml setlocal ts=4 sts=4 sw=4 et
 autocmd Filetype python command! R :w !python
