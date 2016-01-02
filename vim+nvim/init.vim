@@ -199,6 +199,9 @@ let g:airline_powerline_fonts = 1
 filetype plugin on
 filetype indent on
 
+" disable lengthmatters by default
+let g:lengthmatters_on_by_default = 0
+
 "set grepprg=grep\ -nH\ $*
 let g:tex_flavor = 'latex'
 let g:vimtex_latexmk_build_dir = './tmp'
