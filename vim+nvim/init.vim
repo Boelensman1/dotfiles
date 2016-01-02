@@ -88,9 +88,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-set ai "Auto indent
-set si "Smart indent
-set wrap "Wrap lines
+set ai " Auto indent
+set si " Smart indent
+set wrap " Wrap lines
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mode related
@@ -177,7 +177,7 @@ nnoremap ; :
 " More logical Y (defaul was alias for yy)
 nnoremap Y y$
 
-"give help some space on the left
+"give help, nerdtree some space on the left
 autocmd Filetype help setlocal foldcolumn=4
 autocmd Filetype nerdtree setlocal foldcolumn=1
 
