@@ -181,6 +181,9 @@ nnoremap Y y$
 autocmd Filetype help setlocal foldcolumn=4
 autocmd Filetype nerdtree setlocal foldcolumn=1
 
+" Don't show linennumbers on man
+autocmd Filetype man setlocal norelativenumber
+
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
