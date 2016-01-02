@@ -73,3 +73,9 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'rstacruz/sparkup', { 'for': ['html', 'xhtml', 'eruby'] }
 " CSS color highlighter
 Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
+
+" -----------------------------------------------------------------
+" Jade
+" -----------------------------------------------------------------
+
+Plug 'digitaltoad/vim-jade'
