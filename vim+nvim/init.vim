@@ -23,12 +23,12 @@ set modeline
 set dir=~/.dotfiles/vim+nvim/_swap//
 
 " backup files (~) in a common location if possible
-set backup
 set backupdir=~/.dotfiles/vim+nvim/_backup/,~/tmp,.
+set backup
 
 " turn on undo files, put them in a common location
+set undodir=~/.dotfiles/vim+nvim/_undo/
 set undofile
-set undodir=~/.dotfiles/vim/_undo/
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
