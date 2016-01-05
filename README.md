@@ -48,5 +48,5 @@ There's a few special files in the hierarchy.
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
 
-# thanks
-This is a fork of holman's dotfiles.
+## thanks
+I want to thank holman's letting me fork his dotfiles!
