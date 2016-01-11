@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+# symlink init.vim to nvimrc
+mkdir ~/.config/nvim
+ln -s ~/.nvimrc ~/.config/nvim/init.vim
+
 # install vundle
 DIRECTORY=~/.dotfiles/vim+nvim/autoload/plug.vim
 if [ ! -d "$DIRECTORY" ]; then
