@@ -29,7 +29,7 @@ runtime plugin/sensible.vim
 let os = substitute(system('uname'), "\n", "", "")
 
 " set font
-set guifont=Meslo\ LG\ S\ Regular\ for\ Powerline\ Nerd\ Font\ Complete\ Mono:h11
+set guifont=Meslo\ LG\ S\ for\ Powerline\ Book:h11
 
 if os == "Linux"
     " set font for linux
