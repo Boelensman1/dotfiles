@@ -58,5 +58,4 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_tex_checkers = []
 
 " source the vim+nvim init file
-set rtp+=~/.dotfiles/vim+nvim/
 source ~/.dotfiles/vim+nvim/init.vim
