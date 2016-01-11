@@ -77,5 +77,8 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 " also load the colorscheme on vimenter, needed to fix a bug
 au VimEnter * colorscheme solarized
 
+" reload the airline on vimenter, also to fix a bug
+au VimEnter * AirlineRefresh
+
 " source the vim+nvim init file
 source ~/.dotfiles/vim+nvim/init.vim
