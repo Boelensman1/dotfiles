@@ -3,4 +3,4 @@ set rtp+=~/.dotfiles/vim/
 set rtp+=~/.dotfiles/vim+nvim/
 
 " Source the init script
-source ~/.dotfiles/vim/vimrc
+source ~/.dotfiles/vim/init.vim
