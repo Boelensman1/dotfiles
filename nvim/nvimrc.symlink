@@ -3,4 +3,4 @@ set rtp+=~/.dotfiles/nvim/
 set rtp+=~/.dotfiles/vim+nvim/
 
 " load the init file
-source ~/.dotfiles/nvim/nvimrc
+source ~/.dotfiles/nvim/init.vim
