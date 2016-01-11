@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " run sensible immediatly so we can overwrite some of it settings
 runtime plugin/sensible.vim
 
