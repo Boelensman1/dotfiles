@@ -40,6 +40,7 @@ func! DeleteTrailingWS()
 endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
+autocmd BufWrite *.js :call DeleteTrailingWS()
 
 " autoreload init.vim when editing
 autocmd! bufwritepost init.vim so $MYVIMRC | AirlineRefresh
