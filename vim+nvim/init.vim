@@ -15,6 +15,9 @@ set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
 set undoreload=10000
 
+" make a new window open to the right
+set splitright
+
 " enable the modeline
 set modeline
 
