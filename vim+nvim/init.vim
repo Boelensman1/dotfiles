@@ -41,6 +41,9 @@ endfunc
 autocmd BufWrite *.py :call DeleteTrailingWS()
 autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
+" autoreload init.vim when editing
+autocmd! bufwritepost init.vim so $MYVIMRC | AirlineRefresh
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,7 +154,7 @@ set tm=500
 
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 " better split navigation
 nnoremap <C-J> <C-W><C-J>
@@ -200,14 +203,15 @@ if !exists('g:airline_symbols')
 endif
 
 " unicode symbols
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.modified= '+'
-let g:airline_symbols.readonly= ''
-let g:airline_symbols.branch = ''
+let g:airline_left_sep = "\uE0B0"
+let g:airline_right_sep = "\uE0B2"
+let g:airline_symbols.linenr = "\uE0A1"
+let g:airline_symbols.modified = '+'
+let g:airline_symbols.readonly = "\uE0A2"
+let g:airline_symbols.crypt = "\uE60A"
+let g:airline_symbols.branch = "\uE0A0"
 let g:airline_symbols.paste = 'Paste'
-let g:airline_symbols.whitespace = '✹'
+let g:airline_symbols.whitespace = ''
 let g:airline_symbols.space = ' '
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
