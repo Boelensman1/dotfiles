@@ -80,6 +80,21 @@ scriptencoding utf-8
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
+" set font
+let os = substitute(system('uname'), "\n", "", "")
+
+" set font
+if os == "Darwin"
+    set guifont=Meslo\ LG\ S\ for\ Powerline\ Book:h11
+endif
+
+if os == "Linux"
+    " set font for linux
+    au VimEnter * set guifont=Meslo\ LG\ S\ for\ Powerline\ 11
+    " make ctrlv work on linux
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
