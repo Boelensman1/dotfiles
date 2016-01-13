@@ -26,22 +26,12 @@ runtime plugin/sensible.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Vim specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let os = substitute(system('uname'), "\n", "", "")
-
-" set font
-set guifont=Meslo\ LG\ S\ for\ Powerline\ Book:h11
-
-if os == "Linux"
-    " set font for linux
-    set guifont=Meslo\ LG\ S\ for\ Powerline\ 11
-    " make ctrlv work on linux
-    source $VIMRUNTIME/mswin.vim
-    behave mswin
-endif
-
 " disable scrollbars
 set guioptions-=r
 set guioptions-=L
+
+" disable tearoff
+set guioptions-=t
 
 """""""""""""""""""""""""""""""
 "  => Linter settings
