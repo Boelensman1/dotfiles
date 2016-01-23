@@ -44,6 +44,12 @@ set noshowcmd
 " use escape to get out of terminal
 tnoremap <Esc> <C-\><C-n>
 
+" also load the colorscheme on vimenter, needed to fix a bug
+au VimEnter * colorscheme solarized
+
+" reload the airline on vimenter, also to fix a bug
+au VimEnter * AirlineRefresh
+
 " set terminal colors
 let g:terminal_color_0="#1b2b34"
 let g:terminal_color_1="#ed5f67"
@@ -70,15 +76,14 @@ let g:terminal_color_foreground="#c1c6cf"
 " Autocheck files on save
 autocmd! BufWritePost * Neomake
 
-" javascript
+" Auto-open the error window
+let g:neomake_open_list = 2
 
+" javascript
 let g:neomake_javascript_enabled_makers = ['eslint']
 
-" also load the colorscheme on vimenter, needed to fix a bug
-au VimEnter * colorscheme solarized
-
-" reload the airline on vimenter, also to fix a bug
-au VimEnter * AirlineRefresh
-
+"""""""""""""""""""""""""""""""
+"  => End of file
+"""""""""""""""""""""""""""""""
 " source the vim+nvim init file
 source ~/.dotfiles/vim+nvim/init.vim
