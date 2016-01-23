@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Edits the contents of a todo
+
+set -e
+
+vim ~/Desktop/"$(echo "$*" | gsed -e 's/^\(.\)/\u\1/')"

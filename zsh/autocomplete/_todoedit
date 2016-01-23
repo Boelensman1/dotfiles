@@ -1,0 +1,10 @@
+#compdef todoedit
+
+typeset -A opt_args
+
+
+_arguments -s -S \
+    "*:todo's :(($(todolist --completions)))" \
+    && return 0
+
+return 1;

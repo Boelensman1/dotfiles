@@ -2,14 +2,15 @@
 """Module to show my todolist"""
 
 import os
-# import sys
+import sys
+import re
 from datetime import datetime
 import optfunc
 
 IGNORE = ['$RECYCLE.BIN', '.DS_Store', '.localized', 'desktop.ini']
 
 
-def list_todo(reverse=False, fullpath=False, simple=False):
+def list_todo(reverse=False, fullpath=False, simple=False, completions=False):
     "Usage: %prog <options> - output todolist"
     path = os.path.expanduser("~") + "/Desktop/"
     files = []
@@ -24,13 +25,22 @@ def list_todo(reverse=False, fullpath=False, simple=False):
     files = sorted(files, key=lambda k: k['created'], reverse=reverse)
 
     # output the files
+    first = True
+
     for todo in files:
-        if simple:
+        if completions:
+            if first:
+                sys.stdout.write(re.escape(todo['filename']))
+                first = False
+            else:
+                sys.stdout.write(' '+re.escape(todo['filename']))
+        elif simple:
             print todo['filename']
         else:
             # format time
             created = todo['created'].strftime('%a %b %d')
             print '[{0}] - {1}'.format(created, todo['filename'])
+
 
 if __name__ == '__main__':
     optfunc.run(list_todo)
