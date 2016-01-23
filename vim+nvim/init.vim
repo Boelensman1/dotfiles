@@ -205,6 +205,9 @@ autocmd Filetype nerdtree setlocal foldcolumn=1
 " Don't show linennumbers on man
 autocmd Filetype man setlocal norelativenumber
 
+" .jshintrc should be read as json
+au BufRead,BufNewFile .jshintrc setf json
+
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
