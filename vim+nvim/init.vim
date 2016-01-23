@@ -281,10 +281,11 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 " set session directory
-let g:session_directory=~/.dotfiles/vim+nvim/_swap//
+let g:session_directory="~/.dotfiles/vim+nvim/_sessions/"
 
-" dont auto-save sessions
-let g:session_autosave='no'
+" dont auto-save or load sessions
+let g:session_autosave="no"
+let g:session_autoload="no"
 
 " Don't persist options and mappings because it can corrupt sessions.
 set sessionoptions-=options
