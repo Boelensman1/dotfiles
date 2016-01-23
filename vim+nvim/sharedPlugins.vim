@@ -16,6 +16,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'bkad/CamelCaseMotion'
 " File finding
 Plug 'ctrlpvim/ctrlp.vim'
+" Session managment
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 
 
 " -----------------------------------------------------------------

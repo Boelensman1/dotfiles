@@ -280,6 +280,16 @@ let g:NERDTreeIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
+" set session directory
+let g:session_directory=~/.dotfiles/vim+nvim/_swap//
+
+" dont auto-save sessions
+let g:session_autosave='no'
+
+" Don't persist options and mappings because it can corrupt sessions.
+set sessionoptions-=options
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
