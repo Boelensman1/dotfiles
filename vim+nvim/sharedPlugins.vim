@@ -44,7 +44,7 @@ Plug 'ivalkeen/nerdtree-execute'
 " Show git status in tree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Status line
-Plug 'bling/vim-airline'
+Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " Highlight long lines
 Plug 'whatyouhide/vim-lengthmatters'
 " Color scheme
