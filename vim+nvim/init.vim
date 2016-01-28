@@ -3,22 +3,18 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" run sensible immediatly so we can overwrite some of it settings
-runtime plugin/sensible.vim
+
+" map the leader to , because its more easily accessible
+let mapleader = ","
 
 " Set to auto read when a file is changed from the outside
 set autoread
 
 " maximum number of changes that can be undone
 set undolevels=1000
+
 " maximum number lines to save for undo on a buffer reload
 set undoreload=10000
-
-" make a new window open to the right
-set splitright
-
-" enable the modeline
-set modeline
 
 " swap files (.swp) in a common location
 " // means use the file's full path
@@ -149,6 +145,12 @@ set relativenumber
 
 " Always show current position
 set ruler
+
+" make a new window open to the right
+set splitright
+
+" enable the modeline
+set modeline
 
 " Ignore case when searching
 set ignorecase
