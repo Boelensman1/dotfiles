@@ -1,2 +1,3 @@
 git/gitconfig.symlink
 vim+nvim/autoload/plug.vim
+vim+nvim/viminfo
