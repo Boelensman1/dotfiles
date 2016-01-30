@@ -16,9 +16,6 @@ set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
 set undoreload=10000
 
-" save viminfo file in ~/.dotfiles
-set viminfo+=n~/.dotfiles/vim+nvim/viminfo
-
 " swap files (.swp) in a common location
 " // means use the file's full path
 set dir=~/.dotfiles/vim+nvim/_swap//

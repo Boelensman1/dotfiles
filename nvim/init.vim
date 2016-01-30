@@ -27,6 +27,9 @@ runtime plugin/sensible.vim
 "  => Neovim specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" save viminfo file in ~/.dotfiles
+set viminfo+=n~/.dotfiles/nvim/viminfo
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 

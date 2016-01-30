@@ -33,6 +33,9 @@ set guioptions-=L
 " disable tearoff
 set guioptions-=t
 
+" save viminfo file in ~/.dotfiles
+set viminfo+=n~/.dotfiles/vim/viminfo
+
 """""""""""""""""""""""""""""""
 "  => Linter settings
 """""""""""""""""""""""""""""""
