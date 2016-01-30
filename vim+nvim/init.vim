@@ -6,6 +6,7 @@
 
 " map the leader to , because its more easily accessible
 let mapleader = ","
+let maplocalleader = ',,'
 
 " Set to auto read when a file is changed from the outside
 set autoread
