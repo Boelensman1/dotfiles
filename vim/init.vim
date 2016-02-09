@@ -12,6 +12,8 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " Language agnostic plugins
 " -----------------------------------------------------------------
 
+" Color scheme
+Plug 'altercation/vim-colors-solarized'
 " Autocomplete
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Linter (needs linters to work)

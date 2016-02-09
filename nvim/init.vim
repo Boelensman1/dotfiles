@@ -12,6 +12,8 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " Language agnostic plugins
 " -----------------------------------------------------------------
 
+" Colorscheme
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
 " Asynchronous maker and linter (needs linters to work)

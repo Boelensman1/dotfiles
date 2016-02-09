@@ -47,8 +47,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 " Highlight long lines
 Plug 'whatyouhide/vim-lengthmatters'
-" Color scheme
-Plug 'altercation/vim-colors-solarized'
 " Icons
 Plug 'ryanoasis/vim-devicons'
 
