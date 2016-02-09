@@ -46,10 +46,13 @@ let g:deoplete#enable_at_startup = 1
 " Use smartcase.
 let g:deoplete#enable_smart_case = 1
 
+" Disable echo error
+let g:neomake_echo_current_error = 0
+
 " Use tab to autocomplete
 inoremap <silent><expr><Tab>
-		\ pumvisible() ? "\<C-n>" :
-		\ deoplete#mappings#manual_complete()
+            \ pumvisible() ? "\<C-n>" :
+            \ deoplete#mappings#manual_complete()
 
 " don't display incomplete commands
 set noshowcmd
@@ -95,11 +98,11 @@ let g:neomake_open_list = 2
 " javascript
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_maker = {
-        \ 'exe': './node_modules/.bin/eslint',
-        \ 'args': ['-f', 'compact'],
-        \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-        \ '%W%f: line %l\, col %c\, Warning - %m'
-        \ }
+            \ 'exe': './node_modules/.bin/eslint',
+            \ 'args': ['-f', 'compact'],
+            \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
+            \ '%W%f: line %l\, col %c\, Warning - %m'
+            \ }
 
 """""""""""""""""""""""""""""""
 "  => End of file
