@@ -17,9 +17,6 @@ set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
 set undoreload=10000
 
-" enable lazyredraw, makes vim faster
-set lazyredraw
-
 " swap files (.swp) in a common location
 " // means use the file's full path
 set dir=~/.dotfiles/vim+nvim/_swap//
