@@ -13,7 +13,15 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " -----------------------------------------------------------------
 
 " Colorscheme
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
+if !empty($ITERM_SESSION_ID)
+    " These terminals support truecolor
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    Plug 'frankier/neovim-colors-solarized-truecolor-only'
+else
+    " and these can't
+    Plug 'altercation/vim-colors-solarized'
+endif
+
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
 " Asynchronous maker and linter (needs linters to work)
