@@ -50,19 +50,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" load colorscheme
-" silent so we don't get errors when vundle is installing
-silent! colorscheme solarized
-silent! so ~/.dotfiles/vim+nvim/plugged/vim-colors-solarized/autoload/togglebg.vim
-
-function! AutoSetSolarized()
-    if strftime("%H") >= 5 && strftime("%H") <= 16
-        set background=light
-    else
-        set background=dark
-    endif
-endfunction
-
 if exists('neovim_dot_app') || has("gui_running")
     call AutoSetSolarized()
 
@@ -246,6 +233,12 @@ let g:airline_symbols.space = ' '
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin on
 filetype indent on
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " disable lengthmatters by default
 let g:lengthmatters_on_by_default = 0

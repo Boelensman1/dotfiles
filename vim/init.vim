@@ -13,7 +13,7 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " -----------------------------------------------------------------
 
 " Color scheme
-Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 " Autocomplete
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Linter (needs linters to work)
@@ -37,6 +37,9 @@ set guioptions-=t
 
 " save viminfo file in ~/.dotfiles
 set viminfo+=n~/.dotfiles/vim/viminfo
+
+" set colorscheme
+silent! colorscheme gruvbox
 
 """""""""""""""""""""""""""""""
 "  => Linter settings

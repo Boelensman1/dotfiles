@@ -66,6 +66,20 @@ au VimEnter * colorscheme solarized
 " reload the airline on vimenter, also to fix a bug
 au VimEnter * AirlineRefresh
 
+" load colorscheme
+" silent so we don't get errors when vundle is installing
+silent! colorscheme solarized
+silent! so ~/.dotfiles/vim+nvim/plugged/vim-colors-solarized/autoload/togglebg.vim
+
+function! AutoSetSolarized()
+    if strftime("%H") >= 5 && strftime("%H") <= 16
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+
+
 " set terminal colors
 let g:terminal_color_0="#1b2b34"
 let g:terminal_color_1="#ed5f67"
