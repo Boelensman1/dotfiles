@@ -49,6 +49,8 @@ Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'whatyouhide/vim-lengthmatters'
 " Icons
 Plug 'ryanoasis/vim-devicons'
+" Easy align by differenct characters
+Plug 'junegunn/vim-easy-align'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
