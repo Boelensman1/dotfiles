@@ -3,7 +3,7 @@ First get the id of your profile using:
 dconf list /org/gnome/terminal/legacy/profiles:/
 ```
 
-Then execute the following command, replacing $profileid by the id of your profile.
+Then execute the following command, replacing $profile by the id of your profile.
 ```
 cat ~/.dotfiles/terminal/gnome-terminal.txt | dconf load /org/gnome/terminal/legacy/profiles:/$profile/
 ```
