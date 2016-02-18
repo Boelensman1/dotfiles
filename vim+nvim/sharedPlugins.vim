@@ -51,6 +51,8 @@ Plug 'whatyouhide/vim-lengthmatters'
 Plug 'ryanoasis/vim-devicons'
 " Easy align by differenct characters
 Plug 'junegunn/vim-easy-align'
+" Color scheme
+Plug 'morhetz/gruvbox'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)

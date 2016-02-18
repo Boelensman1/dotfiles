@@ -12,8 +12,6 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " Language agnostic plugins
 " -----------------------------------------------------------------
 
-" Color scheme
-Plug 'morhetz/gruvbox'
 " Autocomplete
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Linter (needs linters to work)
