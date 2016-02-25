@@ -38,6 +38,7 @@ set viminfo+=n~/.dotfiles/vim/viminfo
 
 " set colorscheme
 silent! colorscheme gruvbox
+set background=dark
 
 """""""""""""""""""""""""""""""
 "  => Linter settings
