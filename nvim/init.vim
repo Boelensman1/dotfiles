@@ -117,6 +117,8 @@ let g:neomake_javascript_eslint_maker = {
             \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
             \ '%W%f: line %l\, col %c\, Warning - %m'
             \ }
+" python
+let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint()['args'] + ["--rcfile", "~/.pylintrc"]
 
 """""""""""""""""""""""""""""""
 "  => End of file
