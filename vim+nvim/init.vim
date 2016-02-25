@@ -50,18 +50,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if exists('neovim_dot_app') || has("gui_running")
-    call AutoSetSolarized()
-
-    " call autosetsolarized on saving a file so the colourscheme updates
-    " currently disables because it makes the screen flicker
-    "if has("autocmd")
-    "    autocmd bufwritepost * call AutoSetSolarized()
-    "endif
-else
-    set background=dark
-endif
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
 scriptencoding utf-8

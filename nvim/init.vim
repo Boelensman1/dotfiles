@@ -79,6 +79,19 @@ function! AutoSetSolarized()
     endif
 endfunction
 
+if exists('neovim_dot_app') || has("gui_running")
+    call AutoSetSolarized()
+
+    " call autosetsolarized on saving a file so the colourscheme updates
+    " currently disables because it makes the screen flicker
+    "if has("autocmd")
+    "    autocmd bufwritepost * call AutoSetSolarized()
+    "endif
+else
+    set background=dark
+endif
+
+
 
 " set terminal colors
 let g:terminal_color_0="#1b2b34"
