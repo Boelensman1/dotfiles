@@ -292,8 +292,8 @@ map <leader>pp :setlocal paste!<cr>
 map <LocalLeader>t :tabnew<cr>
 
 " cd to the current directory
-map <leader>cd :cd %:p:h<cr>
-map <LocalLeader>cd :lcd %:p:h<cr>
+map <leader>cd :cd %:p:h<cr>:pwd<CR>
+map <LocalLeader>cd :lcd %:p:h<cr>:pwd<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
