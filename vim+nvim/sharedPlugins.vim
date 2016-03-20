@@ -20,6 +20,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 " Session managment
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
 
 
 " -----------------------------------------------------------------
