@@ -291,6 +291,10 @@ map <leader>pp :setlocal paste!<cr>
 " quick open new tab
 map <LocalLeader>t :tabnew<cr>
 
+" cd to the current directory
+map <leader>cd :cd %:p:h<cr>
+map <LocalLeader>cd :lcd %:p:h<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
