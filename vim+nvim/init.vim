@@ -252,6 +252,9 @@ if exists('neovim_dot_app') || has("gui_running")
     let g:nerdtree_tabs_open_on_console_startup=1
 endif
 
+" set shortcuts for NERDtree
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 " Set the git icons
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
@@ -285,9 +288,8 @@ noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-
 " quick open new tab
-map <LocalLeader>t :tabnew<CR>
+map <LocalLeader>t :tabnew<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
