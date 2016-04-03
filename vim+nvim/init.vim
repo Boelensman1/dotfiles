@@ -278,6 +278,9 @@ let g:session_autoload="no"
 " Don't persist options and mappings because it can corrupt sessions.
 set sessionoptions-=options
 
+" use jsx syntax without jsx extension
+let g:jsx_ext_required = 0
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
