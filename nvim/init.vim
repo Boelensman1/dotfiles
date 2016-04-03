@@ -24,6 +24,7 @@ endif
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs'
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'
 
