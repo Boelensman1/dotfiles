@@ -6,6 +6,12 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## install
 
+Install the following:
+ - vim and/or nvim
+ - ternjs http://ternjs.net
+ - jedi https://github.com/davidhalter/jedi
+ - eslint https://www.npmjs.com/package/eslint
+
 Run this:
 
 ```sh
