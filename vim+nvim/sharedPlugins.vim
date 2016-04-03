@@ -61,19 +61,19 @@ Plug 'morhetz/gruvbox'
 " -----------------------------------------------------------------
 
 " JS syntax
-Plug 'othree/yajs.vim'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " JS libs syntax (React, Angular)
-Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 " JSX syntax (needs vim-javascript for indentation)
-Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx', { 'for': 'javascript' } |  Plug 'pangloss/vim-javascript'
 " JSON syntax
-Plug 'sheerun/vim-json'
+Plug 'sheerun/vim-json', { 'for': 'json' }
 
 " -----------------------------------------------------------------
 " HTML/CSS
 " -----------------------------------------------------------------
 "  Python autocomplete
-Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 
 " -----------------------------------------------------------------
@@ -81,9 +81,9 @@ Plug 'zchee/deoplete-jedi'
 " -----------------------------------------------------------------
 
 " HTML5 syntax
-Plug 'othree/html5.vim'
+Plug 'othree/html5.vim', { 'for': ['html', 'javascript'] }
 " SCSS syntax
-Plug 'cakebaker/scss-syntax.vim'
+Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass'] }
 " Sparkup, emmet alternative (<C-e> to expand expression)
 Plug 'rstacruz/sparkup', { 'for': ['html', 'xhtml', 'eruby'] }
 " CSS color highlighter
@@ -93,4 +93,4 @@ Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
 " Jade
 " -----------------------------------------------------------------
 
-Plug 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-jade', { 'for': 'jade' }
