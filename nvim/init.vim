@@ -62,14 +62,14 @@ set noshowcmd
 tnoremap <Esc> <C-\><C-n>
 
 " also load the colorscheme on vimenter, needed to fix a bug
-au VimEnter * colorscheme solarized
+au VimEnter * colorscheme gruvbox
 
 " reload the airline on vimenter, also to fix a bug
 au VimEnter * AirlineRefresh
 
 " load colorscheme
 " silent so we don't get errors when vundle is installing
-silent! colorscheme solarized
+silent! colorscheme gruvbox
 silent! so ~/.dotfiles/vim+nvim/plugged/vim-colors-solarized/autoload/togglebg.vim
 
 function! AutoSetSolarized()
