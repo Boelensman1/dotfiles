@@ -242,6 +242,7 @@ let g:lengthmatters_excluded = ['unite', 'tagbar', 'startify', 'gundo', 'vimshel
 autocmd Filetype yaml setlocal ts=4 sts=4 sw=4 et
 autocmd Filetype python command! R :w !python
 autocmd Filetype pascal command! R :w! /tmp/pascal.pas | !instantfpc /tmp/pascal.pas
+autocmd Filetype javascript command! R :w !node
 
 "arduino
 au BufRead,BufNewFile *.pde set filetype=arduino
