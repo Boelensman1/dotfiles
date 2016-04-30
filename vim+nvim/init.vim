@@ -239,8 +239,11 @@ let g:vimtex_view_method = 'zathura'
 " disable lengthmatters (higlighting of long lines)
 let g:lengthmatters_excluded = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree', 'help', 'qf', 'tex']
 
+" set formatting of yaml
 autocmd Filetype yaml setlocal ts=4 sts=4 sw=4 et
-autocmd Filetype python command! R :w !python
+
+" execute files
+autocmd Filetype python command! R :w !python3
 autocmd Filetype pascal command! R :w! /tmp/pascal.pas | !instantfpc /tmp/pascal.pas
 autocmd Filetype javascript command! R :w !node
 
