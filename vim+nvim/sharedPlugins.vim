@@ -67,6 +67,8 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx', 'java
 " JSX syntax (needs vim-javascript for indentation)
 Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx', 'javascript'] } |  Plug 'pangloss/vim-javascript'
 " js hint generation
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript.jsx', 'javascript'] }
+
 " JSON syntax
 Plug 'sheerun/vim-json', { 'for': 'json' }
 

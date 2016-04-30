@@ -228,6 +228,15 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" Allow prompt for interactive input
+let g:jsdoc_allow_input_prompt = 1
+" Prompt for a function description
+let g:jsdoc_input_description = 1
+" Add shortcut for jsdoc
+autocmd Filetype javascript  map <Leader>d :JsDoc<CR>
+autocmd Filetype javascript.jsx  map <Leader>d :JsDoc<CR>
+
+
 " disable lengthmatters by default
 let g:lengthmatters_on_by_default = 0
 
