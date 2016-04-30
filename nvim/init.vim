@@ -24,7 +24,8 @@ endif
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript.jsx', 'javascript'] }
+
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'
 

@@ -61,11 +61,12 @@ Plug 'morhetz/gruvbox'
 " -----------------------------------------------------------------
 
 " JS syntax
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': ['javascript.jsx', 'javascript'] }
 " JS libs syntax (React, Angular)
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx', 'javascript'] }
 " JSX syntax (needs vim-javascript for indentation)
-Plug 'mxw/vim-jsx', { 'for': 'javascript' } |  Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx', 'javascript'] } |  Plug 'pangloss/vim-javascript'
+" js hint generation
 " JSON syntax
 Plug 'sheerun/vim-json', { 'for': 'json' }
 
@@ -81,7 +82,7 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 " -----------------------------------------------------------------
 
 " HTML5 syntax
-Plug 'othree/html5.vim', { 'for': ['html', 'javascript'] }
+Plug 'othree/html5.vim', { 'for': ['html', 'javascript.jsx', 'javascript'] }
 " SCSS syntax
 Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass'] }
 " Sparkup, emmet alternative (<C-e> to expand expression)
