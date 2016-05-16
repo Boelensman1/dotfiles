@@ -13,7 +13,7 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " -----------------------------------------------------------------
 
 " Colorscheme
-if !empty($ITERM_SESSION_ID) || $COLORTERM == "gnome-terminal"
+if !empty($ITERM_SESSION_ID) || $COLORTERM == "truecolor" || $COLORTERM == "gnome-terminal"
     " These terminals support truecolor
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     Plug 'frankier/neovim-colors-solarized-truecolor-only'
