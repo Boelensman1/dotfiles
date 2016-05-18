@@ -20,9 +20,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 " Session managment
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
-" Multiple cursors
-Plug 'terryma/vim-multiple-cursors'
-
 
 " -----------------------------------------------------------------
 " Git related tools
@@ -61,9 +58,9 @@ Plug 'morhetz/gruvbox'
 " -----------------------------------------------------------------
 
 " JS syntax
-Plug 'othree/yajs.vim', { 'for': ['javascript.jsx', 'javascript'] }
+Plug 'jelera/vim-javascript-syntax', { 'for': ['javascript.jsx', 'javascript'] }
 " JS libs syntax (React, Angular)
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx', 'javascript'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx'] }
 " JSX syntax (needs vim-javascript for indentation)
 Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx', 'javascript'] } |  Plug 'pangloss/vim-javascript'
 " js hint generation
