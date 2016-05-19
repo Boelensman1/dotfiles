@@ -22,6 +22,8 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
+" Insert lorum ipsum
+Plug 'vim-scripts/loremipsum'
 
 
 " -----------------------------------------------------------------
@@ -37,6 +39,7 @@ Plug 'airblade/vim-gitgutter'
 " -----------------------------------------------------------------
 " Interface improving
 " -----------------------------------------------------------------
+
 " NERDtree file browser
 Plug 'scrooloose/nerdtree'
 " Better tab addon for NERDree
@@ -61,11 +64,9 @@ Plug 'morhetz/gruvbox'
 " -----------------------------------------------------------------
 
 " JS syntax
-Plug 'othree/yajs.vim', { 'for': ['javascript.jsx', 'javascript'] }
-" JS libs syntax (React, Angular)
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx', 'javascript'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript.jsx', 'javascript'] }
 " JSX syntax (needs vim-javascript for indentation)
-Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx', 'javascript'] } |  Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx'] }
 " js hint generation
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript.jsx', 'javascript'] }
 
@@ -75,22 +76,17 @@ Plug 'sheerun/vim-json', { 'for': 'json' }
 " -----------------------------------------------------------------
 " HTML/CSS
 " -----------------------------------------------------------------
-"  Python autocomplete
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-
-
-" -----------------------------------------------------------------
-" HTML/CSS
-" -----------------------------------------------------------------
 
 " HTML5 syntax
-Plug 'othree/html5.vim', { 'for': ['html', 'javascript.jsx', 'javascript'] }
+Plug 'othree/html5.vim', { 'for': ['html'] }
 " SCSS syntax
 Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass'] }
-" Sparkup, emmet alternative (<C-e> to expand expression)
-Plug 'rstacruz/sparkup', { 'for': ['html', 'xhtml', 'eruby'] }
 " CSS color highlighter
 Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
+" Always match html tags
+Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xhtml', 'javascript.jsx']}
+" Helper function for closing html tags (press >)
+Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'javascript.jsx']}
 
 " -----------------------------------------------------------------
 " Jade

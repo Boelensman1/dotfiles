@@ -24,7 +24,10 @@ endif
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
+" Improved js autocomplete
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript.jsx', 'javascript'] }
+" Improved python autocomplete
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'
