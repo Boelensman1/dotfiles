@@ -174,6 +174,8 @@ inoremap <right> <nop>
 " move logically up and down
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 " use ; as :
 nnoremap ; :
