@@ -155,6 +155,10 @@ set tm=500
 " (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
 
+" Add the Rpdf command to load the text from pdf's
+command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
+command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> - |fmt -csw78
+
 " better split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
