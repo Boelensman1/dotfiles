@@ -14,6 +14,8 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
+        ;; get me back to HEAD, remove untracked files
+        nevermind = !git reset --hard HEAD && git clean -d -f
 [color]
         diff = auto
         status = auto
