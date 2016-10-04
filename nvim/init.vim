@@ -23,7 +23,7 @@ else
 endif
 
 " Autocomplete
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Improved js autocomplete
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript.jsx', 'javascript'] }
 " Improved python autocomplete
@@ -53,6 +53,20 @@ let g:deoplete#enable_smart_case = 1
 
 " Disable echo error
 let g:neomake_echo_current_error = 0
+
+" Configure deoplete for javascript autocomplete
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+
+" autoclose the preview window
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Use tab to autocomplete
 inoremap <silent><expr><Tab>

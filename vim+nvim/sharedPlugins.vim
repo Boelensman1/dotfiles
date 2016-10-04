@@ -66,9 +66,12 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx'] }
 " js hint generation
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript.jsx', 'javascript'] }
-
+" Tern integration
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript.jsx', 'javascript'] }
 " JSON syntax
 Plug 'sheerun/vim-json', { 'for': 'json' }
+" function parameter completion
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 " -----------------------------------------------------------------
 " HTML/CSS

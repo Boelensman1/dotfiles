@@ -143,7 +143,7 @@ set showmatch
 set mat=2
 
 " don't show the preview autocomplete
-set completeopt=menu
+set completeopt=longest,menuone,preview
 
 " No annoying sound on errors
 set noerrorbells
