@@ -30,6 +30,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'gregsexton/gitv', { 'on': 'Gitv' }
 " Git changes showed on line numbers
 Plug 'airblade/vim-gitgutter'
+" Git branch manager
+Plug 'idanarye/vim-merginal'
 
 " -----------------------------------------------------------------
 " Interface improving
