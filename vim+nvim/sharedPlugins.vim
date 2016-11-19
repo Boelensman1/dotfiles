@@ -3,9 +3,10 @@
 " -----------------------------------------------------------------
 " Language agnostic plugins
 " -----------------------------------------------------------------
-
-" sensible defaults
-Plug 'tpope/vim-sensible'
+if !has('nvim')
+    " sensible defaults
+    Plug 'tpope/vim-sensible'
+endif
 " Automatically closing stuff
 Plug 'cohama/lexima.vim'
 " Autoformat files
@@ -74,6 +75,8 @@ Plug 'ternjs/tern_for_vim', { 'for': ['javascript.jsx', 'javascript'] }
 Plug 'sheerun/vim-json', { 'for': 'json' }
 " function parameter completion
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" graph QL parser
+Plug 'jparise/vim-graphql'
 
 " -----------------------------------------------------------------
 " HTML/CSS
