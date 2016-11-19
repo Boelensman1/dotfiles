@@ -20,7 +20,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
 # Set a really fast key repeat.
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 1
 
 # Set up Safari for development.
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
