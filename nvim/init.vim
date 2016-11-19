@@ -110,7 +110,9 @@ else
     set background=dark
 endif
 
-
+if exists('&inccommand')
+  set inccommand=split
+endif
 
 " set terminal colors
 let g:terminal_color_0="#1b2b34"
