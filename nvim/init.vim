@@ -13,7 +13,7 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " -----------------------------------------------------------------
 
 " Colorscheme
-if !empty($ITERM_SESSION_ID) || $COLORTERM == "truecolor" || $COLORTERM == "gnome-terminal"
+if !empty($ITERM_SESSION_ID) || $COLORTERM == "truecolor" || $COLORTERM == "gnome-terminal" || exists('g:nyaovim_version')
     " These terminals support truecolor
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
     Plug 'frankier/neovim-colors-solarized-truecolor-only'
@@ -111,26 +111,43 @@ else
 endif
 
 if exists('&inccommand')
-  set inccommand=split
+  set inccommand=nosplit
 endif
 
 " set terminal colors
-let g:terminal_color_0="#1b2b34"
-let g:terminal_color_1="#ed5f67"
-let g:terminal_color_2="#9ac895"
-let g:terminal_color_3="#fbc963"
-let g:terminal_color_4="#669acd"
-let g:terminal_color_5="#c695c6"
-let g:terminal_color_6="#5fb4b4"
-let g:terminal_color_7="#c1c6cf"
-let g:terminal_color_8="#65737e"
-let g:terminal_color_9="#fa9257"
-let g:terminal_color_10="#343d46"
-let g:terminal_color_11="#4f5b66"
-let g:terminal_color_12="#a8aebb"
-let g:terminal_color_13="#ced4df"
-let g:terminal_color_14="#ac7967"
-let g:terminal_color_15="#d9dfea"
+" dark0 + gray
+let g:terminal_color_0 = "#282828"
+let g:terminal_color_8 = "#928374"
+
+" neurtral_red + bright_red
+let g:terminal_color_1 = "#cc241d"
+let g:terminal_color_9 = "#fb4934"
+
+" neutral_green + bright_green
+let g:terminal_color_2 = "#98971a"
+let g:terminal_color_10 = "#b8bb26"
+
+" neutral_yellow + bright_yellow
+let g:terminal_color_3 = "#d79921"
+let g:terminal_color_11 = "#fabd2f"
+
+" neutral_blue + bright_blue
+let g:terminal_color_4 = "#458588"
+let g:terminal_color_12 = "#83a598"
+
+" neutral_purple + bright_purple
+let g:terminal_color_5 = "#b16286"
+let g:terminal_color_13 = "#d3869b"
+
+" neutral_aqua + faded_aqua
+let g:terminal_color_6 = "#689d6a"
+let g:terminal_color_14 = "#8ec07c"
+
+" light4 + light1
+let g:terminal_color_7 = "#a89984"
+let g:terminal_color_15 = "#ebdbb2"
+
+" foreground & background
 let g:terminal_color_background="#1b2b34"
 let g:terminal_color_foreground="#c1c6cf"
 
