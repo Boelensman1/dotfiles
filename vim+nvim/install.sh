@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 # symlink init.vim to nvimrc
+mkdir ~/.config
 mkdir ~/.config/nvim
 ln -s ~/.nvimrc ~/.config/nvim/init.vim
 
