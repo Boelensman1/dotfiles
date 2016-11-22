@@ -3,7 +3,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " map the leader to , because its more easily accessible
 let mapleader = ","
 let maplocalleader = ',,'
@@ -50,6 +49,9 @@ endif
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
 scriptencoding utf-8
+
+" set gui colors
+set termguicolors
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
