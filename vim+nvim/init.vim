@@ -50,9 +50,6 @@ endif
 set encoding=utf-8
 scriptencoding utf-8
 
-" set gui colors
-set termguicolors
-
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 

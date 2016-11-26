@@ -42,6 +42,9 @@ runtime plugin/sensible.vim
 "  => Neovim specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" set gui colors
+set termguicolors
+
 " save viminfo file in ~/.dotfiles
 set viminfo+=n~/.dotfiles/nvim/viminfo
 
