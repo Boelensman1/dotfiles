@@ -167,17 +167,12 @@ autocmd! BufWritePost * Neomake
 
 " Auto-open the error window
 let g:neomake_open_list = 2
+" remove invalid entries in the list
+let g:neomake_remove_invalid_entries = 1
 
 " javascript
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = ['eslint']
-let g:neomake_javascript_eslint_maker = {
-            \ 'exe': 'eslint',
-            \ 'args': ['-f', 'compact'],
-            \ 'errorformat': '%E%f: line %l\, col %c\, Error - %m,' .
-            \ '%W%f: line %l\, col %c\, Warning - %m'
-            \ }
-let g:neomake_jsx_eslint_maker = g:neomake_javascript_eslint_maker
+let g:neomake_javascript_enabled_makers = ['eslint_d']
+let g:neomake_jsx_enabled_makers = ['eslint_d']
 
 " python
 let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint()['args'] + ["--rcfile", "~/.pylintrc"]
