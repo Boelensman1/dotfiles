@@ -42,6 +42,11 @@ runtime plugin/sensible.vim
 "  => Neovim specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" keybinding for opening term in vsplit
+"map <leader>t :vsp | terminal<CR>
+let mapleader = ","
+map <leader>t :vsp<bar>terminal<cr><esc>:wincmd h<cr>
+
 " set gui colors
 set termguicolors
 
