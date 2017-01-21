@@ -77,6 +77,8 @@ Plug 'sheerun/vim-json', { 'for': 'json' }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " graph QL parser
 Plug 'jparise/vim-graphql'
+" handlebars plugin
+Plug 'mustache/vim-mustache-handlebars'
 
 " -----------------------------------------------------------------
 " HTML/CSS
