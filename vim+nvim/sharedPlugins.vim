@@ -40,8 +40,6 @@ Plug 'idanarye/vim-merginal'
 
 " NERDtree file browser
 Plug 'scrooloose/nerdtree'
-" Better tab addon for NERDree
-Plug 'jistr/vim-nerdtree-tabs'
 " Plugin so you can execute things from within NERDtree
 Plug 'ivalkeen/nerdtree-execute'
 " Show git status in tree

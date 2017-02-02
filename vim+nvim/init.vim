@@ -276,13 +276,12 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 let g:NERDTreeMinimalUI=1
 
 " Open NERDtree tab when in gui
-let g:nerdtree_tabs_open_on_gui_startup=1
 if exists('neovim_dot_app') || has("gui_running")
-    let g:nerdtree_tabs_open_on_console_startup=1
+    au VimEnter *  NERDTree
 endif
 
 " set shortcuts for NERDtree
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 " Set the git icons
 let g:NERDTreeIndicatorMapCustom = {
