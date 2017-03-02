@@ -62,6 +62,14 @@ let g:deoplete#enable_smart_case = 1
 " Disable echo error
 let g:neomake_echo_current_error = 0
 
+" configure rust checker
+let g:neomake_rust_cargo_maker = {
+    \ 'args': ['test', '--no-run'],
+    \ 'errorformat':
+    \ neomake#makers#ft#rust#rustc()['errorformat'],
+    \ }
+let g:neomake_rust_enabled_makers = ['cargo']
+
 " Configure deoplete for javascript autocomplete
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
