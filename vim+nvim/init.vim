@@ -7,6 +7,9 @@
 let mapleader = ","
 let maplocalleader = ',,'
 
+" set dot to be a keyword
+set iskeyword-=.
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
