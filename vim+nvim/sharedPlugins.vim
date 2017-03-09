@@ -65,6 +65,8 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript.jsx', 'javascript'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx'] }
 " JSX syntax (needs vim-javascript for indentation)
 Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx'] }
+" typescript syntax
+Plug 'HerringtonDarkholme/yats.vim'
 " js hint generation
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript.jsx', 'javascript'] }
 " Tern integration

@@ -26,6 +26,8 @@ endif
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Improved js autocomplete
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript.jsx', 'javascript'] }
+" improved typescript autocomplete
+Plug 'mhartington/nvim-typescript', { 'for': ['typescript'] }
 " Improved python autocomplete
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
