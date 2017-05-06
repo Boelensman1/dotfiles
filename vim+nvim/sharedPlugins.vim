@@ -53,56 +53,25 @@ Plug 'junegunn/vim-easy-align'
 Plug 'morhetz/gruvbox'
 " Navigate between tmux and vim panes
 Plug 'christoomey/vim-tmux-navigator'
+" language pack
+Plug 'sheerun/vim-polyglot'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
 " -----------------------------------------------------------------
-
-" JS syntax
-Plug 'pangloss/vim-javascript', { 'for': ['javascript.jsx', 'javascript'] }
-" JS libs syntax (React, Angular)
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript.jsx'] }
-" JSX syntax (needs vim-javascript for indentation)
-Plug 'mxw/vim-jsx', { 'for': ['javascript.jsx'] }
-" typescript syntax
-Plug 'HerringtonDarkholme/yats.vim'
 " js hint generation
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript.jsx', 'javascript'] }
 " Tern integration
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript.jsx', 'javascript'] }
-" JSON syntax
-Plug 'sheerun/vim-json', { 'for': 'json' }
 " function parameter completion
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-" graph QL parser
-Plug 'jparise/vim-graphql'
-" handlebars plugin
-Plug 'mustache/vim-mustache-handlebars'
 
 " -----------------------------------------------------------------
 " HTML/CSS
 " -----------------------------------------------------------------
-
-" HTML5 syntax
-Plug 'othree/html5.vim', { 'for': ['html'] }
-" SCSS syntax
-Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass'] }
 " CSS color highlighter
-Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less'] }
+Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less', 'javascript.jsx'] }
 " Always match html tags
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xhtml', 'javascript.jsx']}
 " Helper function for closing html tags (press >)
 Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'javascript.jsx']}
-
-" -----------------------------------------------------------------
-" Jade
-" -----------------------------------------------------------------
-
-Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-
-
-" -----------------------------------------------------------------
-" Rust
-" -----------------------------------------------------------------
-Plug 'rust-lang/rust.vim'
-
