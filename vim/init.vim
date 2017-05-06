@@ -40,6 +40,9 @@ set viminfo+=n~/.dotfiles/vim/viminfo
 silent! colorscheme gruvbox
 set background=dark
 
+" set crypt scheme
+set cm=blowfish2
+
 """""""""""""""""""""""""""""""
 "  => Linter settings
 """""""""""""""""""""""""""""""
