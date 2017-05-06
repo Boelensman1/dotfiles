@@ -54,6 +54,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-easy-align'
 " Color scheme
 Plug 'morhetz/gruvbox'
+" Navigate between tmux and vim panes
+Plug 'christoomey/vim-tmux-navigator'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
