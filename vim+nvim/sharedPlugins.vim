@@ -3,10 +3,7 @@
 " -----------------------------------------------------------------
 " Language agnostic plugins
 " -----------------------------------------------------------------
-if !has('nvim')
-    " sensible defaults
-    Plug 'tpope/vim-sensible'
-endif
+
 " Automatically closing stuff
 Plug 'cohama/lexima.vim'
 " Autoformat files

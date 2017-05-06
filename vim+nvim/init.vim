@@ -74,9 +74,6 @@ endif
 if os == "Linux"
     " set font for linux
     au VimEnter * set guifont=Meslo\ LG\ S\ for\ Powerline\ 11
-    " make ctrlv work on linux
-    source $VIMRUNTIME/mswin.vim
-    behave mswin
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -5,6 +5,9 @@
 " Setting up vim-plug
 call plug#begin('~/.dotfiles/vim+nvim/plugged')
 
+" sensible defaults
+Plug 'tpope/vim-sensible'
+
 " load the shared plugins
 source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 
