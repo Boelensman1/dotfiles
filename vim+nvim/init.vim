@@ -228,6 +228,9 @@ let g:airline_symbols.paste = 'Paste'
 let g:airline_symbols.whitespace = ''
 let g:airline_symbols.space = ' '
 
+" Remove percentage
+let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
