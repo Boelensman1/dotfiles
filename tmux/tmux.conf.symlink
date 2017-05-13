@@ -40,8 +40,9 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 # automatic saving and restoring of the sessions
 set -g @plugin 'tmux-plugins/tmux-continuum'
-# automaticly start the tmux server on boot
+# automaticly start the tmux server on boot and restore session
 set -g @continuum-boot 'on'
+set -g @continuum-restore 'on'
 # mouse scrolling
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 # theming
