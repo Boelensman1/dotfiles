@@ -14,6 +14,8 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'bkad/CamelCaseMotion'
 " File finding
 Plug 'ctrlpvim/ctrlp.vim'
+" File searching (make sure to install ag)
+Plug 'mileszs/ack.vim'
 " Better comments
 Plug 'scrooloose/nerdcommenter'
 " Session managment

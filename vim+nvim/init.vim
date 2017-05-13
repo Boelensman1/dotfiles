@@ -312,6 +312,11 @@ set sessionoptions-=options
 " use jsx syntax without jsx extension
 let g:jsx_ext_required = 0
 
+" if ag executable is availble, use that for searching
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
