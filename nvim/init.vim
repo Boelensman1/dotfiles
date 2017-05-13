@@ -47,7 +47,7 @@ runtime plugin/sensible.vim
 " keybinding for opening term in vsplit
 "map <leader>t :vsp | terminal<CR>
 let mapleader = ","
-map <leader>t :vsp<bar>terminal<cr><esc>:wincmd h<cr>
+map <leader>t :vsp<bar>terminal<cr>
 
 " set gui colors
 set termguicolors
