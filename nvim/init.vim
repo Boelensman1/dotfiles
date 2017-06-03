@@ -22,14 +22,24 @@ else
     Plug 'altercation/vim-colors-solarized'
 endif
 
+" python support
+Plug 'roxma/python-support.nvim'
+" for python completions
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'jedi')
+" language specific completions on markdown file
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'mistune')
+
+" utils, optional
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'psutil')
+let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
+
 " Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Improved js autocomplete
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript.jsx', 'javascript'] }
-" improved typescript autocomplete
-Plug 'mhartington/nvim-typescript', { 'for': ['typescript'] }
-" Improved python autocomplete
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'roxma/nvim-completion-manager'
+" javascript completion
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+" don't give |ins-completion-menu| messages.  For example,
+" '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
+set shortmess+=c
 
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'
@@ -87,9 +97,8 @@ let g:tern#arguments = ['--persistent']
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Use tab to autocomplete
-inoremap <silent><expr><Tab>
-            \ pumvisible() ? "\<C-n>" :
-            \ deoplete#mappings#manual_complete()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " don't display incomplete commands
 set noshowcmd
