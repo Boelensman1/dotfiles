@@ -57,6 +57,8 @@ Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-tmux-navigator'
 " language pack
 Plug 'sheerun/vim-polyglot'
+" Possibility for distraction free writing
+Plug 'junegunn/goyo.vim'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
