@@ -55,12 +55,14 @@ runtime plugin/sensible.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " keybinding for opening term in vsplit
-"map <leader>t :vsp | terminal<CR>
 let mapleader = ","
 map <leader>t :vsp<bar>terminal<cr>
 
 " set gui colors
 set termguicolors
+
+" disable line numbers in term
+au TermOpen * setlocal nonumber norelativenumber
 
 " save viminfo file in ~/.dotfiles
 set viminfo+=n~/.dotfiles/nvim/viminfo
