@@ -11,6 +11,16 @@ Plug 'tpope/vim-sensible'
 " load the shared plugins
 source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  => Vim specific settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" keybinding for opening term in vsplit
+let mapleader = ","
+if has('terminal')
+    map <leader>t :vsp<bar>terminal ++close ++curwin<cr>
+endif
+
 " -----------------------------------------------------------------
 " Language agnostic plugins
 " -----------------------------------------------------------------
