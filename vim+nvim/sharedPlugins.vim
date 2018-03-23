@@ -23,6 +23,9 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
 " Working with variants of a word, mostly use it for case senstive
 " replace
 Plug 'tpope/vim-abolish'
+" Add a test runner
+Plug 'tpope/vim-dispatch'
+Plug 'janko-m/vim-test'
 
 " -----------------------------------------------------------------
 " Git related tools
