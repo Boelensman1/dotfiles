@@ -113,6 +113,10 @@ else
     set background=dark
 endif
 
+" make test commands execute using neomake
+let test#strategy = "dispatch"
+let test#javascript#ava#options = '--verbose'
+
 if exists('&inccommand')
   set inccommand=nosplit
 endif
