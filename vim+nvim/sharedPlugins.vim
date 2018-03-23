@@ -20,6 +20,9 @@ Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdcommenter'
 " Session managment
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session'
+" Working with variants of a word, mostly use it for case senstive
+" replace
+Plug 'tpope/vim-abolish'
 
 " -----------------------------------------------------------------
 " Git related tools
