@@ -37,6 +37,8 @@ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_r
 Plug 'roxma/nvim-completion-manager'
 " javascript completion
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+" typescript completion
+Plug 'mhartington/nvim-typescript'
 " don't give |ins-completion-menu| messages.  For example,
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
 set shortmess+=c
@@ -66,34 +68,6 @@ au TermOpen * setlocal nonumber norelativenumber
 
 " save viminfo file in ~/.dotfiles
 set viminfo+=n~/.dotfiles/nvim/viminfo
-
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-
-" Use smartcase.
-let g:deoplete#enable_smart_case = 1
-
-" Disable echo error
-let g:neomake_echo_current_error = 0
-
-" configure rust checker
-let g:neomake_rust_cargo_maker = {
-    \ 'args': ['test', '--no-run'],
-    \ 'errorformat':
-    \ neomake#makers#ft#rust#rustc()['errorformat'],
-    \ }
-let g:neomake_rust_enabled_makers = ['cargo']
-
-" Configure deoplete for javascript autocomplete
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ternjs']
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
 
 " autoclose the preview window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
