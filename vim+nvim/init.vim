@@ -259,10 +259,20 @@ autocmd Filetype javascript.jsx  map <Leader>d :JsDoc<CR>
 " disable lengthmatters by default
 let g:lengthmatters_on_by_default = 0
 
-"set grepprg=grep\ -nH\ $*
+" -- latex setup --
+" disable polygot latex in favor of vimtex
+let g:polyglot_disabled = ['latex']
 let g:tex_flavor = 'latex'
-let g:vimtex_latexmk_build_dir = './tmp'
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method= 'latexrun'
+let g:vimtex_compiler_latexrun = {
+    \ 'background' : 1,
+    \ 'build_dir' : 'latex.out',
+    \ 'options' : [
+    \   '--verbose-cmds',
+    \   '--latex-args="-synctex=1 -shell-escape"',
+    \ ],
+    \}
 
 " disable lengthmatters (higlighting of long lines)
 let g:lengthmatters_excluded = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree', 'help', 'qf', 'tex']
