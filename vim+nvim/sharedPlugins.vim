@@ -85,3 +85,9 @@ Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less', 'jav
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xhtml', 'javascript.jsx']}
 " Helper function for closing html tags (press >)
 Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'javascript.jsx']}
+
+" -----------------------------------------------------------------
+" LATEX
+" -----------------------------------------------------------------
+" Base latex plugin
+Plug 'lervag/vimtex', { 'for': ['tex'] }
