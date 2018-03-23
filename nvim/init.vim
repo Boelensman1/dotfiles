@@ -168,6 +168,8 @@ autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
 " remove invalid entries in the list
 let g:neomake_remove_invalid_entries = 1
+" Disable echo error
+let g:neomake_echo_current_error = 0
 
 " javascript
 let g:neomake_javascript_enabled_makers = ['eslint']
@@ -175,6 +177,15 @@ let g:neomake_jsx_enabled_makers = ['eslint']
 
 " python
 let g:neomake_python_pylint_args = neomake#makers#ft#python#pylint()['args'] + ["--rcfile", "~/.pylintrc"]
+
+" configure rust checker
+let g:neomake_rust_cargo_maker = {
+    \ 'args': ['test', '--no-run'],
+    \ 'errorformat':
+    \ neomake#makers#ft#rust#rustc()['errorformat'],
+    \ }
+let g:neomake_rust_enabled_makers = ['cargo']
+
 
 """""""""""""""""""""""""""""""
 "  => End of file
