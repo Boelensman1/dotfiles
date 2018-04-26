@@ -26,6 +26,8 @@ Plug 'tpope/vim-abolish'
 " Add a test runner
 Plug 'tpope/vim-dispatch'
 Plug 'janko-m/vim-test'
+" Undo viewer
+Plug 'sjl/gundo.vim'
 
 " -----------------------------------------------------------------
 " Git related tools
