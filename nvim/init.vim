@@ -45,6 +45,7 @@ set shortmess+=c
 
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'
+Plug 'benjie/local-npm-bin.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
