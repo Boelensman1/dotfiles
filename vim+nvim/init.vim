@@ -261,13 +261,26 @@ let g:lengthmatters_on_by_default = 0
 let g:polyglot_disabled = ['latex']
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_method= 'latexrun'
+let g:vimtex_compiler_method= 'latexmk'
 let g:vimtex_compiler_latexrun = {
     \ 'background' : 1,
     \ 'build_dir' : 'latex.out',
     \ 'options' : [
     \   '--verbose-cmds',
     \   '--latex-args="-synctex=1 -shell-escape"',
+    \ ],
+    \}
+let g:vimtex_compiler_latexmk = {
+    \ 'background' : 1,
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-pdf',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
     \ ],
     \}
 
