@@ -152,5 +152,9 @@ then
   fi
 fi
 
+
+echo '  Setting up vim/neovim'
+source vim+nvim/install.sh
+
 echo ''
 echo '  All installed!'
