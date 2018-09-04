@@ -42,6 +42,8 @@ Plug 'mhartington/nvim-typescript'
 " don't give |ins-completion-menu| messages.  For example,
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
 set shortmess+=c
+" don't auto select the option, as this does not work
+set completeopt=noinsert,menuone,noselect
 
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'

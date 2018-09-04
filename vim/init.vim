@@ -30,6 +30,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Linter (needs linters to work)
 Plug 'scrooloose/syntastic'
 
+" don't show the preview autocomplete
+set completeopt=longest,menuone,preview
+
 " Add plugins to &runtimepath
 call plug#end()
 
