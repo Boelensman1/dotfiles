@@ -34,16 +34,20 @@ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_r
 let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
 
 " Autocomplete
-Plug 'roxma/nvim-completion-manager'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
 " javascript completion
-Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
 " typescript completion
-Plug 'mhartington/nvim-typescript'
+Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
 " don't give |ins-completion-menu| messages.  For example,
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
 set shortmess+=c
 " don't auto select the option, as this does not work
 set completeopt=noinsert,menuone,noselect
+
+" enable autocomplete for all
+autocmd BufEnter * call ncm2#enable_for_buffer()
 
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'
