@@ -204,6 +204,9 @@ autocmd Filetype man setlocal norelativenumber
 " .jshintrc should be read as json
 au BufRead,BufNewFile .jshintrc setf json
 
+" Add shortcut to make current split 80 with (+space for number)
+map <Leader>8 :vertical resize 86<CR>
+
 """"""""""""""""""""""""""""""
 " => Status line
 """"""""""""""""""""""""""""""
