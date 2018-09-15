@@ -19,6 +19,7 @@ bspc config click_to_focus             true
 bspc config adaptive raise             true
 bspc config center_pseudo_tiled        true
 bspc config pointer_modifier        control
+bspc config pointer_action2         resize_corner
 bspc config initial_polarity       SECOND_CHILD 
 
 
