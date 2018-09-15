@@ -1,0 +1,135 @@
+#
+# wm independent hotkeys
+#
+
+#custom keybindings
+ctrl + shift + b
+  chromium
+
+ctrl + shift + m
+  termite -e ncmpcpp
+
+ctrl + shift + a
+  code
+
+ctrl + shift + n
+  nautilus
+
+ctrl + shift + p
+  pomodoneapp
+
+# terminal emulator
+ctrl + Return
+  termite
+
+# program launcher
+alt + space
+  rofi -show run
+
+# make sxhkd reload its configuration files:
+ctrl + alt + r
+  pkill -USR1 -x sxhkd
+
+#
+# bspwm hotkeys
+#
+
+# quit bspwm normally
+ctrl + alt + q
+  bspc quit
+
+#
+# state/flags
+#
+
+# set the window state
+alt + {t,shift + t,s,f}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+ctrl + alt + {x,y,z}
+  bspc node -g {locked,sticky,private}
+
+#
+# focus/swap
+#
+
+# focus the node in the given direction
+alt + {_,shift + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+# focus the next/previous node
+# ctrl + {_,shift + }c
+#  bspc node -f {next,prev}
+
+# focus the next/previous desktop
+alt + bracket{left,right}
+  bspc desktop -f {prev,next}
+
+# focus the last node/desktop
+# ctrl + {grave,Tab}
+#  bspc {node,desktop} -f last
+
+# focus the older or newer node in the focus history
+#ctrl + {o,i}
+#  bspc wm -h off; \
+#  bspc node {older,newer} -f; \
+#  bspc wm -h on
+
+# focus or send to the given desktop
+ctrl + {_,shift + }{1-9,0}
+  bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# preselect
+#
+
+# preselect the direction
+#ctrl + alt + {h,j,k,l}
+#  bspc node -p {west,south,north,east}
+
+# preselect the ratio
+#ctrl + alt + {1-9}
+#  bspc node -o 0.{1-9}
+
+# cancel the preselection for the focused node
+#ctrl + alt + space
+#  bspc node -p cancel
+
+# cancel the preselection for the focused desktop
+#ctrl + alt + shift + space
+#  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+#
+# move/resize
+#
+#
+
+# expand a window by moving one of its side outward
+ctrl + alt + {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+ctrl + alt + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating window
+alt + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
+
+alt + w
+  bspc node -c
+
+
+# music
+F12
+  mpc toggle
+
+XF86AudioPlay
+  mpc toggle
+
+Print
+  maim | xclip -selection clipboard -t image/png
+
+alt + Print
+  maim -s | xclip -selection clipboard -t image/png

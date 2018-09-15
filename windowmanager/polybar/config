@@ -1,0 +1,255 @@
+[settings]
+; Limit the amount of events sent to lemonbar within a set timeframe:
+; - "Allow <throttle_limit> updates within <throttle_ms> of time"
+; Default values:
+;throttle_limit = 5
+;throttle_ms = 50
+
+[bar/bar_left]
+monitor = HDMI-0
+top = true
+override-redirect = false
+
+width = 100%
+height = 22
+
+offset_x = 12
+offset_y = 7
+
+background = #1B2B34
+foreground = #8fa1b3
+
+spacing = 1
+# lineheight = 3
+
+padding_left = 0
+padding_right = 0
+module_margin_left = 0
+module_margin_right = 0
+
+font-0 = Hack:size=8
+font-1 = MaterialDesignIcons:size=11;0
+
+modules-left = bspwm
+modules-right = updates volume date time
+
+wm-restack = bspwm
+
+[bar/bar_center]
+monitor = DVI-I-1
+top = true
+override-redirect = false
+
+width = 100%
+height = 22
+
+offset_x = 12
+offset_y = 7
+
+background = #1B2B34
+foreground = #8fa1b3
+
+spacing = 1
+# lineheight = 3
+
+; Position of the tray container
+; If undefined, tray support will be disabled
+; NOTE: A center aligned tray will cover center aligned modules.
+;
+; Available positions:
+;   left
+;   center
+;   right
+tray-position = right
+
+; If true, the bar will not shift its
+; contents when the tray changes
+tray-detached = false
+
+; Tray icon max size
+tray-maxsize = 16
+
+
+padding_left = 0
+padding_right = 0
+module_margin_left = 0
+module_margin_right = 0
+
+font-0 = Hack:size=8;0
+font-1 = MaterialDesignIcons:size=11;0
+font-2 = FontAwesome:size=9;0
+font-3 = Unifont:size=10;-2
+
+modules-left = bspwm
+modules-center = mpd
+
+wm-restack = bspwm
+
+[bar/bar_right]
+monitor = DVI-D-0
+top = true
+override-redirect = false
+
+width = 100%
+height = 22
+
+offset_x = 12
+offset_y = 7
+
+background = #1B2B34
+foreground = #8fa1b3
+
+spacing = 1
+# lineheight = 3
+
+padding_left = 0
+padding_right = 0
+module_margin_left = 0
+module_margin_right = 0
+
+font-0 = Hack:size=8
+font-1 = MaterialDesignIcons:size=11;0
+
+modules-left = bspwm
+modules-right = updates volume date time lock shutdown
+
+wm-restack = bspwm
+
+[module/lock]
+type = custom/script
+exec = echo 
+click-left = i3lock-fancy
+format-padding = 1
+
+[module/updates]
+type = custom/script
+exec = python3 ~/.dotfiles/bin/num.py
+interval = 100
+
+[module/date]
+type = internal/date
+date =  %a %d
+format-padding = 1
+
+[module/shutdown]
+type = custom/script
+exec = echo 
+click-left = exec sudo poweroff
+format-padding = 1
+
+[module/time]
+type = internal/date
+date  =  %H:%M
+format-padding = 1
+
+[module/volume]
+type = internal/volume
+;speaker_mixer = Speaker
+;headphone_mixer = Headphone
+;headphone_control_numid = 9
+
+format-volume-padding = 1
+format-muted-padding = 1
+
+label-volume =  %percentage%
+label-muted = 
+
+[module/bspwm]
+type = internal/bspwm
+
+ workspace_icon-[0-15]+ = label;icon
+;  workspace_icon-0 = desktop; 
+;  workspace_icon-1 = term;  
+;  workspace_icon-2 = code;  
+;  workspace_icon-3 = browse;  
+;  workspace_icon-4 = files;  
+;  workspace_icon-5 = music;  
+;  workspace_icon-6 = chat;  
+
+
+; Available tags:
+ ;   <label-state> (default) - gets replaced with <label-(active|urgent|occupied|empty)>
+ ;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+ format = <label-state> <label-mode>
+
+ ; If any values for label-dimmed-N area defined, the workspace/mode colors will get overridden
+ ; with those values if the monitor is out of focus
+ label-dimmed-foreground = #555
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+ ; Default: %icon%  %name%
+ label-focused = %icon% Desktop %name%
+ label-focused-foreground = #95C7AE
+
+ ; Available tokens:
+ ;   %name%
+ ;   %icon%
+ ;   %index%
+; Default: %icon%  %name%
+label-occupied = %icon% %name%
+label-occupied-foreground = #95C7AE
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-foreground = #F85A72
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-empty = %icon%
+label-empty-foreground = #8fa1b3
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+; Available tags:
+;   <label-song> (default)
+;   <label-time>
+;   <bar-progress>
+;   <toggle> - gets replaced with <icon-(pause|play)>
+;   <icon-random>
+;   <icon-repeat>
+;   <icon-repeatone>
+;   <icon-prev>
+;   <icon-stop>
+;   <icon-play>
+;   <icon-pause>
+;   <icon-next>
+;   <icon-seekb>
+;   <icon-seekf>
+format-online = <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <bar-progress> <label-time>  <label-song>
+
+
+; Only applies if <icon-X> is used
+icon-play = ⏵
+icon-pause = ⏸
+icon-stop = ⏹
+icon-prev = ⏮
+icon-next = ⏭
+icon-seekb = ⏪
+icon-seekf = ⏩
+icon-random = 🔀
+icon-repeat = 🔁
+icon-repeatone = 🔂
+
+; Only applies if <bar-progress> is used
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
