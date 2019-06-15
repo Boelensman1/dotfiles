@@ -28,6 +28,12 @@ Plug 'tpope/vim-dispatch'
 Plug 'janko-m/vim-test'
 " Undo viewer
 Plug 'sjl/gundo.vim'
+" Note taking
+Plug 'xolox/vim-notes'
+" Formatting
+Plug 'sbdchd/neoformat'
+" Add the bufferize command
+Plug 'AndrewRadev/bufferize.vim'
 
 " -----------------------------------------------------------------
 " Git related tools

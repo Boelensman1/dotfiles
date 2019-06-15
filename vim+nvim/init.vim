@@ -255,6 +255,20 @@ let g:jsdoc_input_description = 1
 autocmd Filetype javascript  map <Leader>d :JsDoc<CR>
 autocmd Filetype javascript.jsx  map <Leader>d :JsDoc<CR>
 
+" setup neoformat to work with prettier
+autocmd FileType javascript setlocal formatprg=prettier\ --parser=babel\ --stdin
+autocmd FileType typescript setlocal formatprg=prettier\ --parser=typescript\ --stdin
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
+
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+" https://github.com/sbdchd/neoformat/issues/25
+let g:neoformat_only_msg_on_error = 1
 
 " disable lengthmatters by default
 let g:lengthmatters_on_by_default = 0
