@@ -34,20 +34,23 @@ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_r
 let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
 
 " Autocomplete
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-" javascript completion
-Plug 'ncm2/ncm2-tern',  {'do': 'npm install'}
-" typescript completion
-Plug 'ncm2/nvim-typescript', {'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+
 " don't give |ins-completion-menu| messages.  For example,
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
 set shortmess+=c
-" don't auto select the option, as this does not work
-set completeopt=noinsert,menuone,noselect
 
-" enable autocomplete for all
-autocmd BufEnter * call ncm2#enable_for_buffer()
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Add function to show documentation
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Asynchronous maker and linter (needs linters to work)
 Plug 'benekastah/neomake'
