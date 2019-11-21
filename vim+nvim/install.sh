@@ -2,7 +2,9 @@
 
 # symlink init.vim to nvimrc
 mkdir -p ~/.config/nvim
-ln -s ~/.nvimrc ~/.config/nvim/init.vim
+if [ ! -f ~/.config/nvim/init.vim ]; then
+    ln -s ~/.nvimrc ~/.config/nvim/init.vim
+fi
 
 # install vundle
 DIRECTORY=~/.dotfiles/vim+nvim/autoload/plug.vim
