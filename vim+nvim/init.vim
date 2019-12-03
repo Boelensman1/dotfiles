@@ -96,6 +96,11 @@ set tabstop=4
 set ai " Auto indent
 set wrap " Wrap lines
 
+" If the filetype is Makefile then we need to use tabs
+" So do not expand tabs into space.
+autocmd FileType make set noexpandtab
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mode related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
