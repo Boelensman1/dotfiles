@@ -57,8 +57,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'ivalkeen/nerdtree-execute'
 " Show git status in tree
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Status line
-Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" Status line & theme for status line
+Plug 'bling/vim-airline' | Plug 'morhetz/gruvbox'
 " Highlight long lines
 Plug 'whatyouhide/vim-lengthmatters'
 " Icons
@@ -66,9 +66,11 @@ Plug 'ryanoasis/vim-devicons'
 " Easy align by differenct characters
 Plug 'junegunn/vim-easy-align'
 " Color scheme
-Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 " Navigate between tmux and vim panes
 Plug 'christoomey/vim-tmux-navigator'
+" newer js syntax (has to loaded ahead of vim-polygot)
+Plug 'maxmellon/vim-jsx-pretty'
 " language pack
 Plug 'sheerun/vim-polyglot'
 " Possibility for distraction free writing
@@ -90,7 +92,7 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " CSS color highlighter
 Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less', 'javascript.jsx'] }
 " Always match html tags
-Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xhtml', 'javascript.jsx']}
+Plug 'Valloric/MatchTagAlways', {'for': ['javascript.jsx']}
 " Helper function for closing html tags (press >)
 Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'javascript.jsx']}
 

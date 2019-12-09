@@ -12,16 +12,6 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " Language agnostic plugins
 " -----------------------------------------------------------------
 
-" Colorscheme
-if !empty($ITERM_SESSION_ID) || $COLORTERM == "truecolor" || $COLORTERM == "gnome-terminal" || exists('g:nyaovim_version')
-    " These terminals support truecolor
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    Plug 'frankier/neovim-colors-solarized-truecolor-only'
-else
-    " and these can't
-    Plug 'altercation/vim-colors-solarized'
-endif
-
 " python support
 Plug 'roxma/python-support.nvim'
 " for python completions
@@ -102,7 +92,7 @@ set noshowcmd
 tnoremap <Esc> <C-\><C-n>
 
 " also load the colorscheme on vimenter, needed to fix a bug
-au VimEnter * colorscheme gruvbox
+au VimEnter * colorscheme gruvbox8
 
 " reload the airline on vimenter, also to fix a bug
 au VimEnter * AirlineRefresh
