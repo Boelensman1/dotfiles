@@ -71,9 +71,10 @@ Plug 'junegunn/vim-easy-align'
 Plug 'lifepillar/vim-gruvbox8'
 " Navigate between tmux and vim panes
 Plug 'christoomey/vim-tmux-navigator'
-" newer js syntax (has to loaded ahead of vim-polygot)
+" newer js syntax (has to loaded ahead of vim-polyglot)
 Plug 'maxmellon/vim-jsx-pretty'
 " language pack
+let g:polyglot_disabled = ['latex'] " disable for latex in favour of vimtex
 Plug 'sheerun/vim-polyglot'
 " Possibility for distraction free writing
 Plug 'junegunn/goyo.vim'

@@ -246,6 +246,9 @@ let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v 
 filetype plugin on
 filetype indent on
 
+" init polyglot_disabled to empty array so we can append later
+let g:polyglot_disabled = []
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
@@ -259,6 +262,9 @@ let g:jsdoc_input_description = 1
 " Add shortcut for jsdoc
 autocmd Filetype javascript  map <Leader>d :JsDoc<CR>
 autocmd Filetype javascript.jsx  map <Leader>d :JsDoc<CR>
+
+" use the newer versions of the plugins for javascript formatting
+let g:polyglot_disabled = g:polyglot_disabled + ['jsx']
 
 " setup neoformat to work with prettier
 autocmd FileType javascript setlocal formatprg=prettier\ --parser=babel\ --stdin
@@ -280,7 +286,6 @@ let g:lengthmatters_on_by_default = 0
 
 " -- latex setup --
 " disable polygot latex in favor of vimtex
-let g:polyglot_disabled = ['latex']
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method= 'latexmk'
