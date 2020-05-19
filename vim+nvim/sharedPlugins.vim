@@ -31,7 +31,7 @@ Plug 'sjl/gundo.vim'
 " Note taking
 Plug 'xolox/vim-notes'
 " Formatting
-Plug 'sbdchd/neoformat'
+Plug 'prettier/vim-prettier'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
 
@@ -59,8 +59,6 @@ Plug 'ivalkeen/nerdtree-execute'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 " Status line
 Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-" Highlight long lines
-Plug 'whatyouhide/vim-lengthmatters'
 " Icons
 Plug 'ryanoasis/vim-devicons'
 " Easy align by differenct characters
