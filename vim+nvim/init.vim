@@ -255,30 +255,24 @@ let g:jsdoc_input_description = 1
 autocmd Filetype javascript  map <Leader>d :JsDoc<CR>
 autocmd Filetype javascript.jsx  map <Leader>d :JsDoc<CR>
 
-" setup neoformat to work with prettier
-autocmd FileType javascript setlocal formatprg=prettier\ --parser=babel\ --stdin
-autocmd FileType typescript setlocal formatprg=prettier\ --parser=typescript\ --stdin
-" Use formatprg when available
-let g:neoformat_try_formatprg = 1
-augroup fmt
-  autocmd!
-  au BufWritePre * try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-augroup END
+" Setup prettier
+" Toggle the g:prettier#autoformat setting based on whether a config file
+" can be found in the current directory or any parent directory.
+let g:prettier#autoformat_config_present = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#quickfix_enabled = 0
+let g:prettier#exec_cmd_async = 1
 
-" Use formatprg when available
-let g:neoformat_try_formatprg = 1
-" https://github.com/sbdchd/neoformat/issues/25
-let g:neoformat_only_msg_on_error = 1
-
-" disable lengthmatters by default
-let g:lengthmatters_on_by_default = 0
 
 " -- latex setup --
 " disable polygot latex in favor of vimtex
 let g:polyglot_disabled = ['latex']
+
+" setup vimtex
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method= 'latexmk'
+let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_compiler_latexrun = {
     \ 'background' : 1,
     \ 'build_dir' : 'latex.out',
@@ -300,9 +294,6 @@ let g:vimtex_compiler_latexmk = {
     \   '-interaction=nonstopmode',
     \ ],
     \}
-
-" disable lengthmatters (higlighting of long lines)
-let g:lengthmatters_excluded = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'nerdtree', 'help', 'qf', 'tex']
 
 " set formatting of yaml
 autocmd Filetype yaml setlocal ts=4 sts=4 sw=4 et
