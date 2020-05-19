@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Opens nvim to add a note
+
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+    python3 ~/AeroFS/PersonalProjects/python/todo/index.py AddTodoTomorrow
+else
+    exec nvim ~/AeroFS/notes/notes.txt -c 'AddTodoTomorrow'
+fi

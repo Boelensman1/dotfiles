@@ -96,6 +96,11 @@ set tabstop=4
 set ai " Auto indent
 set wrap " Wrap lines
 
+" If the filetype is Makefile then we need to use tabs
+" So do not expand tabs into space.
+autocmd FileType make set noexpandtab
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Visual mode related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -241,6 +246,9 @@ let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v 
 filetype plugin on
 filetype indent on
 
+" init polyglot_disabled to empty array so we can append later
+let g:polyglot_disabled = []
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
@@ -266,8 +274,6 @@ let g:prettier#exec_cmd_async = 1
 
 " -- latex setup --
 " disable polygot latex in favor of vimtex
-let g:polyglot_disabled = ['latex']
-
 " setup vimtex
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'

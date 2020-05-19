@@ -1,24 +1,9 @@
 #!/bin/sh
 #
-# Creates something for me to do.
-#
-# I've used literally every todo list, app, program, script, everything. Even
-# the ones you are building and haven't released yet.
-#
-# I've found that they're all nice in their nice ways, but I still don't use
-# them, thus defeating the purpose of a todo list.
-#
-# All `todo` does is put a file on my Desktop with the filename given. That's
-# it. I aggressively prune my desktop of old tasks and keep one or two on there
-# at a time. Once I've finished a todo, I just delete the file. That's it.
-#
-# Millions of dollars later and `touch` wins.
-set -e
+# Opens nvim to add a note or switch to the tab containing nvim
 
-# Run our new web 2.0 todo list application and raise millions of VC dollars.
-touch ~/Desktop/"$(echo "$*" | gsed -e 's/^\(.\)/\u\1/')"
-echo "Saving the todo... Uploading to the cloud... Integrating in the mainframe... OK"
-
-# silently sync with the server, start by getting filelist
-rm -f /tmp/todolist
-todolist --simple --fullpath > /tmp/todolist
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+    python3 ~/AeroFS/PersonalProjects/python/todo/index.py AddTodo
+else
+    exec nvim ~/AeroFS/notes/notes.txt -c 'AddTodo'
+fi

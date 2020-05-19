@@ -34,6 +34,8 @@ Plug 'xolox/vim-notes'
 Plug 'prettier/vim-prettier'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
+" Notes
+Plug 'file:///Volumes/AeroFS/PersonalProjects/vim/singleFileNotes'
 
 " -----------------------------------------------------------------
 " Git related tools
@@ -64,10 +66,13 @@ Plug 'ryanoasis/vim-devicons'
 " Easy align by differenct characters
 Plug 'junegunn/vim-easy-align'
 " Color scheme
-Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 " Navigate between tmux and vim panes
 Plug 'christoomey/vim-tmux-navigator'
+" newer js syntax (has to loaded ahead of vim-polyglot)
+Plug 'maxmellon/vim-jsx-pretty'
 " language pack
+let g:polyglot_disabled = ['latex'] " disable for latex in favour of vimtex
 Plug 'sheerun/vim-polyglot'
 " Possibility for distraction free writing
 Plug 'junegunn/goyo.vim'
@@ -88,7 +93,7 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " CSS color highlighter
 Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less', 'javascript.jsx'] }
 " Always match html tags
-Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xhtml', 'javascript.jsx']}
+Plug 'Valloric/MatchTagAlways', {'for': ['javascript.jsx']}
 " Helper function for closing html tags (press >)
 Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'javascript.jsx']}
 

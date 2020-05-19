@@ -12,16 +12,6 @@ source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 " Language agnostic plugins
 " -----------------------------------------------------------------
 
-" Colorscheme
-if !empty($ITERM_SESSION_ID) || $COLORTERM == "truecolor" || $COLORTERM == "gnome-terminal" || exists('g:nyaovim_version')
-    " These terminals support truecolor
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    Plug 'frankier/neovim-colors-solarized-truecolor-only'
-else
-    " and these can't
-    Plug 'altercation/vim-colors-solarized'
-endif
-
 " python support
 Plug 'roxma/python-support.nvim'
 " for python completions
@@ -34,7 +24,7 @@ let g:python_support_python3_requirements = add(get(g:,'python_support_python3_r
 let g:python_support_python3_requirements = add(get(g:,'python_support_python3_requirements',[]),'setproctitle')
 
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " don't give |ins-completion-menu| messages.  For example,
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
@@ -82,9 +72,18 @@ set viminfo+=n~/.dotfiles/nvim/viminfo
 " autoclose the preview window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" Use tab to autocomplete
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " don't display incomplete commands
 set noshowcmd
@@ -93,7 +92,7 @@ set noshowcmd
 tnoremap <Esc> <C-\><C-n>
 
 " also load the colorscheme on vimenter, needed to fix a bug
-au VimEnter * colorscheme gruvbox
+au VimEnter * colorscheme gruvbox8
 
 " reload the airline on vimenter, also to fix a bug
 au VimEnter * AirlineRefresh

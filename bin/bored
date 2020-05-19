@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 """
 Continuously display fortunes, every enter press gives a new fortune
 """
@@ -7,7 +7,7 @@ import subprocess
 
 while True:
     subprocess.call('clear')
-    print "" # give a little space
+    print("") # give a little space
     subprocess.call('fortune')
-    print "\n\n"
-    raw_input('Press enter for next fortune')
+    print("\n\n")
+    input('Press enter for next fortune')
