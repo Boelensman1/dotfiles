@@ -34,6 +34,8 @@ Plug 'xolox/vim-notes'
 Plug 'sbdchd/neoformat'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
+" Notes
+Plug 'file:///Volumes/AeroFS/PersonalProjects/vim/singleFileNotes'
 
 " -----------------------------------------------------------------
 " Git related tools
