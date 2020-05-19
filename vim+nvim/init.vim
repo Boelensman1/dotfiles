@@ -273,7 +273,6 @@ let g:prettier#exec_cmd_async = 1
 
 
 " -- latex setup --
-" disable polygot latex in favor of vimtex
 " setup vimtex
 let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
