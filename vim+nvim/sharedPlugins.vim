@@ -59,8 +59,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'ivalkeen/nerdtree-execute'
 " Show git status in tree
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Status line
-Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" Status line & theme for status line
+Plug 'bling/vim-airline' | Plug 'morhetz/gruvbox'
 " Icons
 Plug 'ryanoasis/vim-devicons'
 " Easy align by differenct characters
