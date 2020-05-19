@@ -35,7 +35,7 @@ Plug 'prettier/vim-prettier'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
 " Notes
-Plug 'file:///Volumes/AeroFS/PersonalProjects/vim/singleFileNotes'
+Plug 'Boelensman1/singleFileNotes'
 
 " -----------------------------------------------------------------
 " Git related tools
