@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Opens nvim to add a note or switch to the tab containing nvim
+
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+    python3 ~/AeroFS/PersonalProjects/python/todo/index.py AddTodoFromCalender
+else
+    exec nvim ~/AeroFS/notes/notes.txt -c 'AddTodoFromCalender'
+fi
