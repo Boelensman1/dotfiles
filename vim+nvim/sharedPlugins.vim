@@ -12,10 +12,6 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'editorconfig/editorconfig-vim'
 " CamelCase and snake_case motions
 Plug 'bkad/CamelCaseMotion'
-" File finding
-Plug 'ctrlpvim/ctrlp.vim'
-" File searching (make sure to install ag)
-Plug 'mileszs/ack.vim'
 " Better comments
 Plug 'scrooloose/nerdcommenter'
 " Session managment
@@ -30,8 +26,6 @@ Plug 'janko-m/vim-test'
 Plug 'sjl/gundo.vim'
 " Note taking
 Plug 'xolox/vim-notes'
-" Formatting
-Plug 'prettier/vim-prettier'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
 " Notes
@@ -52,7 +46,14 @@ Plug 'idanarye/vim-merginal'
 " -----------------------------------------------------------------
 " Interface improving
 " -----------------------------------------------------------------
-
+"  denite
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " NERDtree file browser
 Plug 'scrooloose/nerdtree'
 " Plugin so you can execute things from within NERDtree
@@ -76,16 +77,14 @@ let g:polyglot_disabled = ['latex'] " disable for latex in favour of vimtex
 Plug 'sheerun/vim-polyglot'
 " Possibility for distraction free writing
 Plug 'junegunn/goyo.vim'
+" Autocomplete
+Plug 'neoclide/coc.nvim'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
 " -----------------------------------------------------------------
-" js hint generation
-Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript.jsx', 'javascript'] }
-" Tern integration
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript.jsx', 'javascript'] }
-" function parameter completion
-Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Use local npm files
+Plug 'benjie/local-npm-bin.vim'
 
 " -----------------------------------------------------------------
 " HTML/CSS
