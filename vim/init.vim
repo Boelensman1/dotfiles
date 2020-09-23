@@ -53,7 +53,7 @@ set guioptions-=t
 set viminfo+=n~/.dotfiles/vim/viminfo
 
 " set colorscheme
-silent! colorscheme gruvbox8
+silent! colorscheme gruvbox
 set background=dark
 
 " set crypt scheme
