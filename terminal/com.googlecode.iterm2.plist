@@ -31223,24 +31223,24 @@
 	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
-	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoK4HCA8aGxwdHh8gJjAxMlUkbnVsbNIJCgsOWk5TLm9iamVjdHNWJGNsYXNzogwN
-	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
-	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
-	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdKGdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
-	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
-	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
-	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVVBcnJheYABrgsMEx4fICEiIyQqNDU2VSRu
+	dWxs0g0ODxJaTlMub2JqZWN0c1YkY2xhc3OiEBGAAoAKgA3TFA0OFRkdV05TLmtleXOj
+	FhcYgAOABIAFoxobHIAGgAeACIAJWklkZW50aWZpZXJVV2lkdGhWSGlkZGVuUTAjQGjA
+	AAAAAAAI0iUmJyhaJGNsYXNzbmFtZVgkY2xhc3Nlc1xOU0RpY3Rpb25hcnmiJylYTlNP
+	YmplY3TTFA0OKy8doxYXGIADgASABaMwMRyAC4AMgAiACVExI0B0oZ2yLQ5W0iUmNzhe
+	TlNNdXRhYmxlQXJyYXmjNzkpV05TQXJyYXkACAARABoAJAApADIANwBJAEwAUgBUAGMA
+	aQBuAHkAgACDAIUAhwCJAJAAmACcAJ4AoACiAKYAqACqAKwArgC5AL8AxgDIANEA0gDX
+	AOIA6wD4APsBBAELAQ8BEQETARUBGQEbAR0BHwEhASMBLAExAUABRAAAAAAAAAIBAAAA
 	AAAAADoAAAAAAAAAAAAAAAAAAAFM
 	</data>
 	<key>NSTableView Sort Ordering v2 KeyBingingTable</key>
 	<data>
-	YnBsaXN0MDDUAQIDBAUGFBVYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
-	AAGGoKMHCA1VJG51bGzSCQoLDFpOUy5vYmplY3RzViRjbGFzc6CAAtIODxARWiRjbGFz
-	c25hbWVYJGNsYXNzZXNeTlNNdXRhYmxlQXJyYXmjEBITV05TQXJyYXlYTlNPYmplY3Rf
-	EA9OU0tleWVkQXJjaGl2ZXLRFhdVQXJyYXmAAQgRGiMtMjc7QUZRWFlbYGt0g4ePmKqt
-	swAAAAAAAAEBAAAAAAAAABgAAAAAAAAAAAAAAAAAAAC1
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVVBcnJheYABowsMEVUkbnVsbNINDg8QWk5T
+	Lm9iamVjdHNWJGNsYXNzoIAC0hITFBVaJGNsYXNzbmFtZVgkY2xhc3Nlc15OU011dGFi
+	bGVBcnJheaMUFhdXTlNBcnJheVhOU09iamVjdAgRGiQpMjdJTFJUWF5jbnV2eH2IkaCk
+	rAAAAAAAAAEBAAAAAAAAABgAAAAAAAAAAAAAAAAAAAC1
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
@@ -31260,9 +31260,9 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 294 592 584 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 87 1440 790 0 0 1440 877 </string>
+	<string>1 87 1440 790 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 87 1440 790 0 0 1440 877 </string>
+	<string>0 493 570 377 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>635 82 570 377 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -32141,19 +32141,26 @@
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
+	<key>NoSyncFrame_SessionsPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{0, 0}, {1440, 900}}</string>
+		<key>topLeft</key>
+		<string>{417, 803}</string>
+	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{517, 642}</string>
+		<string>{269, 605}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>0F9CA6D6-D2AF-4EA8-9CFD-19DC7EF2C6E4</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>7</integer>
+	<integer>61</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -32964,12 +32971,14 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-09T19:19:32Z</date>
+	<date>2021-01-27T13:51:42Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
+	<false/>
+	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
@@ -33032,9 +33041,42 @@
 			<key>app name</key>
 			<string>index.py</string>
 			<key>date</key>
-			<date>2020-05-03T21:29:47Z</date>
+			<date>2020-08-19T04:48:58Z</date>
 			<key>next confirmation</key>
-			<date>2020-06-02T21:29:47Z</date>
+			<date>2020-09-18T04:48:58Z</date>
+		</dict>
+		<key>api_key=16777221:8676919462:1ee186dc935c29b2ba16ae4b3b640f2eb647ff13cfcd1209a1e1daf18ff68e4a:Python /Users/wigger/AeroFS/PersonalProjects/python/todo/index.py</key>
+		<dict>
+			<key>allowed</key>
+			<true/>
+			<key>app name</key>
+			<string>index.py</string>
+			<key>date</key>
+			<date>2020-12-08T09:03:24Z</date>
+			<key>next confirmation</key>
+			<date>2021-01-07T09:03:24Z</date>
+		</dict>
+		<key>api_key=16777221:8699026936:2f9f7ba2a198a0303097d7966b52dc5ce9d753a3d9154e7bd942867c23ebca28:Python /Users/wigger/AeroFS/PersonalProjects/python/todo/index.py</key>
+		<dict>
+			<key>allowed</key>
+			<true/>
+			<key>app name</key>
+			<string>index.py</string>
+			<key>date</key>
+			<date>2021-03-15T07:45:57Z</date>
+			<key>next confirmation</key>
+			<date>2021-04-14T07:45:57Z</date>
+		</dict>
+		<key>api_key=16777224:8674444778:9f556c8df4db3e480ca8687cdf8e2cae7c86e21c7020c0f33228d587a52670d1:Python /Users/wigger/AeroFS/PersonalProjects/python/todo/index.py</key>
+		<dict>
+			<key>allowed</key>
+			<true/>
+			<key>app name</key>
+			<string>index.py</string>
+			<key>date</key>
+			<date>2020-08-21T09:06:15Z</date>
+			<key>next confirmation</key>
+			<date>2020-09-20T09:06:15Z</date>
 		</dict>
 	</dict>
 	<key>kCPKSelectionViewPreferredModeKey</key>
