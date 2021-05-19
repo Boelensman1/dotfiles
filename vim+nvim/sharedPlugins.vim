@@ -30,6 +30,8 @@ Plug 'xolox/vim-notes'
 Plug 'AndrewRadev/bufferize.vim'
 " Notes
 Plug 'Boelensman1/singleFileNotes'
+" prettier
+Plug 'prettier/vim-prettier'
 
 " -----------------------------------------------------------------
 " Git related tools
@@ -46,14 +48,6 @@ Plug 'idanarye/vim-merginal'
 " -----------------------------------------------------------------
 " Interface improving
 " -----------------------------------------------------------------
-"  denite
-if has('nvim')
-  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/denite.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 " NERDtree file browser
 Plug 'scrooloose/nerdtree'
 " Plugin so you can execute things from within NERDtree
@@ -72,13 +66,8 @@ Plug 'lifepillar/vim-gruvbox8'
 Plug 'christoomey/vim-tmux-navigator'
 " newer js syntax (has to loaded ahead of vim-polyglot)
 Plug 'maxmellon/vim-jsx-pretty'
-" language pack
-let g:polyglot_disabled = ['latex'] " disable for latex in favour of vimtex
-Plug 'sheerun/vim-polyglot'
 " Possibility for distraction free writing
 Plug 'junegunn/goyo.vim'
-" Autocomplete
-Plug 'neoclide/coc.nvim'
 
 " -----------------------------------------------------------------
 " JS (ES6, React)
