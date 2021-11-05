@@ -30,8 +30,6 @@ Plug 'xolox/vim-notes'
 Plug 'AndrewRadev/bufferize.vim'
 " Notes
 Plug 'Boelensman1/singleFileNotes'
-" prettier
-Plug 'prettier/vim-prettier'
 
 " -----------------------------------------------------------------
 " Git related tools

@@ -20,6 +20,9 @@ Plug 'neovim/nvim-lspconfig'
 " lsp server
 Plug 'hrsh7th/nvim-compe'
 
+" formatter
+Plug 'mhartington/formatter.nvim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -118,8 +121,6 @@ local eslint = {
   lintStdin = true,
   lintFormats = {"%f:%l:%c: %m"},
   lintIgnoreExitCode = true,
-  formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
-  formatStdin = true
 }
 
 local function eslint_config_exists()
@@ -129,7 +130,7 @@ local function eslint_config_exists()
     return true
   end
 
-  if vim.fn.filereadable("package.json") then
+  if vim.fn.filereadable("package.json")==1 then
     if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
       return true
     end
@@ -138,25 +139,59 @@ local function eslint_config_exists()
   return false
 end
 
-lsp_config.efm.setup {
-  init_options = {documentFormatting = false},
-  root_dir = function()
-    if not eslint_config_exists() then
-      return nil
+-- setup prettier
+local function get_prettier_config_location()
+  local prettierrc = vim.fn.glob(".prettierrc*", 0, 1)
+
+  if not vim.tbl_isempty(prettierrc) then
+    return prettierrc[1]
+  end
+
+  if vim.fn.filereadable("package.json")==1 then
+    if vim.fn.json_decode(vim.fn.readfile("package.json"))["prettier"] then
+      return true
     end
-    return vim.fn.getcwd()
-  end,
+  end
+
+  return false
+end
+
+local prettier = {
+  formatCommand = (
+    function()
+        local config_location = get_prettier_config_location()
+        if config_location == false then
+            return "prettier"
+        end
+
+        if config_location == true then
+            return "prettier"
+        end
+
+        return ("npx --no-install prettier --config " .. config_location)
+    end
+  )(),
+  formatStdin = true
+}
+
+lsp_config.efm.setup {
+  init_options = {documentFormatting = true},
   settings = {
+    rootMarkers = {".git/"},
     languages = {
-      javascript = {eslint},
-      javascriptreact = {eslint},
-      ["javascript.jsx"] = {eslint},
-      typescript = {eslint},
-      ["typescript.tsx"] = {eslint},
-      typescriptreact = {eslint}
-    }
+      json = {prettier},
+      javascript = {eslint, prettier},
+      javascriptreact = {eslint, prettier},
+      ["javascript.jsx"] = {eslint, prettier},
+      typescript = {eslint, prettier},
+      ["typescript.tsx"] = {eslint, prettier},
+      typescriptreact = {eslint, prettier}
+    },
+    log_level = 1,
+    log_file = '/tmp/efm.log'
   },
   filetypes = {
+    "json",
     "javascript",
     "javascriptreact",
     "javascript.jsx",
@@ -165,6 +200,33 @@ lsp_config.efm.setup {
     "typescriptreact"
   },
 }
+EOF
+
+"" formatter setup
+lua <<EOF
+local function prettier_config()
+    return {
+        exe = "prettier",
+        args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+        stdin = true
+    }
+end
+
+require('formatter').setup({
+  logging = false,
+  filetype = {
+    javascript = {prettier_config},
+    typescript = {prettier_config},
+    json = {prettier_config}
+    }
+} )
+
+vim.api.nvim_exec([[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.js,*.json,*.ts FormatWrite
+augroup END
+]], true)
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

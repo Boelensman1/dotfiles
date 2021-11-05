@@ -260,12 +260,6 @@ let g:jsdoc_input_description = 1
 autocmd Filetype javascript  map <Leader>d :JsDoc<CR>
 autocmd Filetype javascript.jsx  map <Leader>d :JsDoc<CR>
 
-" prettier setup
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-let g:prettier#autoformat_config_present = 1
-let g:prettier#exec_cmd_async = 1
-
 " -- latex setup --
 " setup vimtex
 let g:tex_flavor = 'latex'
