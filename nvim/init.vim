@@ -175,7 +175,7 @@ local prettier = {
 }
 
 lsp_config.efm.setup {
-  init_options = {documentFormatting = true},
+  init_options = {documentFormatting = true, completion=false},
   settings = {
     rootMarkers = {".git/"},
     languages = {
