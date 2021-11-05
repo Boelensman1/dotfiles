@@ -357,6 +357,11 @@ map <LocalLeader>t :tabnew<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<CR>
 map <LocalLeader>cd :lcd %:p:h<cr>:pwd<CR>
 
+" set tmux window name to current working dir
+if exists('$TMUX')
+    call system("tmux rename-window nvim-" . fnamemodify(getcwd(), ':t'))
+endif
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
