@@ -29,6 +29,9 @@ call plug#end()
 " run sensible immediatly so we can overwrite some of it settings
 runtime plugin/sensible.vim
 
+" source the vim+nvim init file
+source ~/.dotfiles/vim+nvim/init.vim
+
 " Setup treesitter  for syntax highlighting
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -227,6 +230,14 @@ augroup FormatAutogroup
   autocmd BufWritePost *.js,*.json,*.ts FormatWrite
 augroup END
 ]], true)
+
+-- set some keybindings
+local function buf_set_keymap(...)
+    vim.api.nvim_buf_set_keymap(bufnr, ...)
+end
+local opts = {noremap = true, silent = true}
+buf_set_keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+buf_set_keymap("n", "<Leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -234,7 +245,6 @@ EOF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " keybinding for opening term in vsplit
-let mapleader = ","
 map <leader>t :vsp<bar>terminal<cr>
 
 " set gui colors
@@ -300,5 +310,3 @@ let g:terminal_color_foreground="#c1c6cf"
 """""""""""""""""""""""""""""""
 "  => End of file
 """""""""""""""""""""""""""""""
-" source the vim+nvim init file
-source ~/.dotfiles/vim+nvim/init.vim
