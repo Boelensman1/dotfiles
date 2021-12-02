@@ -54,6 +54,9 @@ let e  = 2.71828182846
 " '-- XXX completion (YYY)', 'match 1 of 2', 'The only match',
 set shortmess+=c
 
+" don't allow hidden buffers (all unsaved buffers must be shown)
+set nohidden
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
