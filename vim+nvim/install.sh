@@ -20,6 +20,3 @@ fi
 if type "nvim" > /dev/null; then
     nvim +PlugInstall! +qall
 fi
-
-# install tern
-(cd ~/.dotfiles/vim+nvim/plugged/tern_for_vim/ && npm install)
