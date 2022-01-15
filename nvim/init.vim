@@ -235,12 +235,10 @@ augroup END
 ]], true)
 
 -- set some keybindings
-local function buf_set_keymap(...)
-    vim.api.nvim_buf_set_keymap(bufnr, ...)
-end
 local opts = {noremap = true, silent = true}
-buf_set_keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-buf_set_keymap("n", "<Leader>e", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>e",  "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>a",  "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 EOF
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
