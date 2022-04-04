@@ -180,7 +180,7 @@ local prettier = {
 lsp_config.efm.setup {
   init_options = {documentFormatting = true, completion=false},
   settings = {
-    rootMarkers = {".git/"},
+    rootMarkers = {".git/", "package.json"},
     languages = {
       json = {prettier},
       javascript = {eslint, prettier},
