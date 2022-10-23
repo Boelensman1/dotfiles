@@ -32,11 +32,14 @@ runtime plugin/sensible.vim
 " source the vim+nvim init file
 source ~/.dotfiles/vim+nvim/init.vim
 
+" enable node provider
+let g:loaded_node_provider = 1
+
 " Setup treesitter  for syntax highlighting
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all", -- either "all" or a list of languages
-  ignore_install = { }, -- List of parsers to ignore installing
+  ignore_install = { "phpdoc", "agda", "hlsl", "menhir", "racket", "markdown_inline", "nickel" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { "c" },  -- list of language that will be disabled
