@@ -24,10 +24,11 @@ Plug 'tpope/vim-dispatch'
 Plug 'janko-m/vim-test'
 " Undo viewer
 Plug 'sjl/gundo.vim'
-" Note taking
-Plug 'xolox/vim-notes'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
+" File finding
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Notes
 Plug 'Boelensman1/singleFileNotes'
 

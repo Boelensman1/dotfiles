@@ -191,7 +191,10 @@ nnoremap gj j
 nnoremap gk k
 
 " use escape to exit terminal
-tnoremap <Esc> <C-\><C-n>
+if has("nvim")
+  " but not if we're in fzf
+  tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+endif
 
 " use ; as :
 nnoremap ; :
@@ -211,6 +214,8 @@ au BufRead,BufNewFile .jshintrc setf json
 
 " Add shortcut to make current split 80 with (+space for number)
 map <Leader>8 :vertical resize 86<CR>
+
+nnoremap <silent> <C-f> :Files<CR>
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -360,9 +365,12 @@ map <LocalLeader>t :tabnew<cr>
 map <leader>cd :cd %:p:h<cr>:pwd<CR>
 map <LocalLeader>cd :lcd %:p:h<cr>:pwd<CR>
 
+set title " rename terminal windows
+set titlestring=nvim:\ %{fnamemodify(getcwd(),':t')}
+
 " set tmux window name to current working dir
 if exists('$TMUX')
-    call system("tmux rename-window nvim-" . fnamemodify(getcwd(), ':t'))
+    call system("tmux rename-window nvim: " . fnamemodify(getcwd(), ':t'))
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
