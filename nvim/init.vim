@@ -20,6 +20,11 @@ Plug 'neovim/nvim-lspconfig'
 " lsp server
 Plug 'hrsh7th/nvim-compe'
 
+" eslint
+Plug 'nvim-lua/plenary.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'MunifTanjim/eslint.nvim'
+
 " formatter
 Plug 'mhartington/formatter.nvim'
 
@@ -122,28 +127,6 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- setup eslint
-local eslint = {
-  lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
-  lintStdin = true,
-  lintFormats = {"%f:%l:%c: %m"},
-  lintIgnoreExitCode = true,
-}
-
-local function eslint_config_exists()
-  local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
-
-  if not vim.tbl_isempty(eslintrc) then
-    return true
-  end
-
-  if vim.fn.filereadable("package.json")==1 then
-    if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-      return true
-    end
-  end
-
-  return false
-end
 
 -- setup prettier
 local function get_prettier_config_location()
@@ -179,6 +162,30 @@ local prettier = {
   )(),
   formatStdin = true
 }
+
+local null_ls = require("null-ls")
+local eslint = require("eslint")
+
+null_ls.setup()
+
+eslint.setup({
+  bin = 'eslint', -- or `eslint_d`
+  code_actions = {
+    enable = true,
+    apply_on_save = {
+      enable = false,
+    },
+    disable_rule_comment = {
+      enable = true,
+      location = "separate_line", -- or `same_line`
+    },
+  },
+  diagnostics = {
+    enable = true,
+    report_unused_disable_directives = false,
+    run_on = "save", -- or `save`
+  },
+})
 
 lsp_config.efm.setup {
   init_options = {documentFormatting = true, completion=false},
