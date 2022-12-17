@@ -55,7 +55,7 @@ vim.o.completeopt = "menuone,noselect"
 local lsp_config = require('lspconfig')
 
 lsp_config.tsserver.setup {
-    cmd = { "typescript-language-server", "--stdio", "--tsserver-log-file=/tmp/tslog.log" }
+    cmd = { "typescript-language-server", "--stdio" }
 }
 
 require'compe'.setup {
