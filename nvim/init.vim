@@ -23,6 +23,10 @@ Plug 'hrsh7th/nvim-compe'
 " formatter
 Plug 'mhartington/formatter.nvim'
 
+" trouble (show errors in quickfix list)
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -242,7 +246,15 @@ local opts = {noremap = true, silent = true}
 vim.api.nvim_set_keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>e",  "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>a",  "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+
+-- trouble config
+require("trouble").setup {
+  auto_open = true,
+  auto_close = true,
+  height = 5
+}
 EOF
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Neovim specific settings
