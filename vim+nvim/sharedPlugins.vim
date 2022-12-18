@@ -82,7 +82,7 @@ Plug 'gorodinskiy/vim-coloresque', { 'for': ['css', 'sass', 'scss', 'less', 'jav
 " Always match html tags
 Plug 'Valloric/MatchTagAlways', {'for': ['javascript.jsx']}
 " Helper function for closing html tags (press >)
-Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'javascript.jsx']}
+Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'javascript.jsx', 'javascript']}
 
 " -----------------------------------------------------------------
 " LATEX
