@@ -26,9 +26,6 @@ Plug 'janko-m/vim-test'
 Plug 'sjl/gundo.vim'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
-" File finding
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 " Notes
 Plug 'Boelensman1/singleFileNotes'
 

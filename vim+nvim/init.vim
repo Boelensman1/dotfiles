@@ -215,10 +215,6 @@ au BufRead,BufNewFile .jshintrc setf json
 " Add shortcut to make current split 80 with (+space for number)
 map <Leader>8 :vertical resize 86<CR>
 
-" fzf options
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>a :Ag<CR>
 
 """"""""""""""""""""""""""""""
 " => Status line

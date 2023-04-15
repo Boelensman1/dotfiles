@@ -27,6 +27,10 @@ Plug 'mhartington/formatter.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
+" File finding
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim' , { 'branch': '0.1.x' }
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -255,6 +259,30 @@ require("trouble").setup {
   auto_close = true,
   height = 5
 }
+
+-- telescope setup
+require('telescope').setup{
+  defaults = {
+     vimgrep_arguments = {
+        "ag",
+        "--nocolor",
+        "--noheading",
+        "--numbers",
+        "--column",
+        "--smart-case",
+        "--silent",
+        "--vimgrep",
+    }
+  },
+  pickers = {
+      find_files = {
+          find_command = {"ag", "--nocolor", "--noheading", "--number", "--column", "--smart-case", "--silent", "-l"},
+      },
+  },
+}
+local scope_builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', scope_builtin.find_files, {}) -- find files
+vim.keymap.set('n', '<leader>fa', scope_builtin.live_grep, {}) -- find using Ag
 EOF
 
 
