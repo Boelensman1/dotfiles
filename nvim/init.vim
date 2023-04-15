@@ -33,6 +33,9 @@ Plug 'mhartington/formatter.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
+" Zettelkast notes
+Plug 'Furkanzmc/zettelkasten.nvim'
+
 " File finding
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim' , { 'branch': '0.1.x' }
@@ -61,6 +64,14 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" Setup zettelkast notes
+lua <<EOF
+require'zettelkasten'.setup {
+  notes_path = "~/AeroFS/notes/",
+  filename_pattern = ".+.zk.md",
+}
+EOF
+
 " setup autocomplete
 lua <<EOF
 
@@ -86,6 +97,7 @@ end
 local cmp = require('cmp')
 cmp.setup {
   sources = {
+      { name = 'zettelkasten' },
       { name = 'nvim_lsp' },
       { name = 'vsnip' },
       { name = 'path' },
@@ -128,39 +140,81 @@ cmp.setup {
 --   },
 }
 
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
+
+local zkbrowser = require("zettelkasten.browser")
+
+local source = {}
+---Return whether this source is available in the current context or not (optional).
+---@return boolean
+function source:is_available()
+    return vim.api.nvim_buf_get_name(0):sub(-6) == '.zk.md'
 end
 
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
+---Return the keyword pattern for triggering completion (optional).
+---If this is ommited, nvim-cmp will use a default keyword pattern. See |cmp-config.completion.keyword_pattern|.
+---@return string
+function source:get_keyword_pattern()
+    return [[\k\+]]
+end
+
+---Return trigger characters for triggering completion (optional).
+function source:get_trigger_characters()
+    return { '[[' }
+end
+
+function get_documentation(filename, count)
+  local binary = assert(io.open(filename, 'rb'))
+  local first_kb = binary:read(1024)
+  if first_kb:find('\0') then
+    return { kind = cmp.lsp.MarkupKind.PlainText, value = 'binary file' }
+  end
+
+  local contents = {}
+  for content in first_kb:gmatch("[^\r\n]+") do
+    table.insert(contents, content)
+    if count ~= nil and #contents >= count then
+      break
     end
+  end
+
+  table.insert(contents, 1, '```markdown')
+  table.insert(contents, '```')
+  return { kind = cmp.lsp.MarkupKind.Markdown, value = table.concat(contents, '\n') }
 end
 
--- Use (s-)tab to:
---- move to prev/next item in completion menuone
---- jump to prev/next snippet's placeholder
-_G.tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-n>"
-  elseif check_back_space() then
-    return t "<Tab>"
-  else
-    return vim.fn['compe#complete']()
-  end
-end
-_G.s_tab_complete = function()
-  if vim.fn.pumvisible() == 1 then
-    return t "<C-p>"
-  else
-    return t "<S-Tab>"
-  end
+---Invoke completion (required).
+---@param params cmp.SourceCompletionApiParams
+---@param callback fun(response: lsp.CompletionResponse|nil)
+function source:complete(params, callback)
+    notes = zkbrowser.get_notes()
+    local words = {}
+    for _, ref in ipairs(notes) do
+
+        documentation = get_documentation(ref.file_name, 20)
+        table.insert(words, {
+            label = ref.title,
+            filterText = ref.title,
+            insertText = ref.id,
+            kind = "zettelkasten",
+            documentation = documentation,
+            data = {
+                path = ref.file_name,
+            },
+        })
+    end
+
+    callback(words)
 end
 
+---Executed after the item was selected.
+---@param completion_item lsp.CompletionItem
+---@param callback fun(completion_item: lsp.CompletionItem|nil)
+function source:execute(completion_item, callback)
+    callback(completion_item)
+end
+
+---Register your source to nvim-cmp.
+require('cmp').register_source('zettelkasten', source)
 
 -- setup eslint
 local eslint = {
