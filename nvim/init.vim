@@ -208,11 +208,11 @@ local prettier = {
     function()
         local config_location = get_prettier_config_location()
         if config_location == false then
-            return "prettier"
+            return "npx --no-install prettier"
         end
 
         if config_location == true then
-            return "prettier"
+            return "npx --no-install prettier"
         end
 
         return ("npx --no-install prettier --config " .. config_location)
@@ -255,7 +255,7 @@ EOF
 lua <<EOF
 local function prettier_config()
     return {
-        exe = "prettier",
+        exe = "npx --no-install prettier",
         args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
         stdin = true
     }
