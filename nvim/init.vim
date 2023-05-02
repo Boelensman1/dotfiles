@@ -236,6 +236,8 @@ lsp_config.efm.setup {
       typescript = {eslint, prettier},
       ["typescript.tsx"] = {eslint, prettier},
       typescriptreact = {eslint, prettier},
+      html = {eslint, prettier},
+      css = {eslint, prettier},
       yaml = {prettier}
     },
     log_level = 1,
@@ -249,6 +251,8 @@ lsp_config.efm.setup {
     "typescript",
     "typescript.tsx",
     "typescriptreact",
+    "html",
+    "css",
     "yaml"
   },
 }
@@ -271,6 +275,7 @@ require('formatter').setup({
     typescript = {prettier_config},
     typescriptreact = {prettier_config},
     html = {prettier_config},
+    css = {prettier_config},
     json = {prettier_config},
     yaml = {prettier_config}
     }
@@ -279,7 +284,7 @@ require('formatter').setup({
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.json,*.ts,*.yaml,*.html,*.tsx,*.jsx FormatWrite
+  autocmd BufWritePost *.js,*.json,*.ts,*.yaml,*.html,*.tsx,*.jsx,*.css FormatWrite
 augroup END
 ]], true)
 
