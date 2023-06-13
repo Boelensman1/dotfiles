@@ -7,7 +7,7 @@ updatelist  = text.splitlines()
 number_of_updates = len(updatelist)
 
 if(number_of_updates == 0):
-    print("" + " : " + str(number_of_updates))
+    print(" " + str(number_of_updates))
 else:
-    print("" + " : " + str(number_of_updates))
-    
+    print(" " + str(number_of_updates))
+
