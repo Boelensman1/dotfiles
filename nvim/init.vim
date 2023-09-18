@@ -40,6 +40,10 @@ Plug 'nvim-telescope/telescope.nvim' , { 'branch': '0.1.x' }
 " Zetelkasten
 Plug 'renerocksai/telekasten.nvim'
 
+" Forever undo
+Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-fundo'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -62,6 +66,13 @@ require'nvim-treesitter.configs'.setup {
     disable = { "c" },  -- list of language that will be disabled
   },
 }
+EOF
+
+" setup forever undo
+lua <<EOF
+require('fundo').install()
+vim.o.undofile = true
+require('fundo').setup()
 EOF
 
 " setup autocomplete

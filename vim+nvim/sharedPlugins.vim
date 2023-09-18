@@ -23,7 +23,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-dispatch'
 Plug 'janko-m/vim-test'
 " Undo viewer
-Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 " Add the bufferize command
 Plug 'AndrewRadev/bufferize.vim'
 " Notes
