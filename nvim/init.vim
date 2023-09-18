@@ -354,6 +354,7 @@ vim.keymap.set('n', '<leader>zf', telekasten.find_notes, {})
 vim.keymap.set('n', '<leader>zd', telekasten.find_daily_notes, {})
 vim.keymap.set('n', '<leader>zg', telekasten.search_notes, {})
 vim.keymap.set('n', '<leader>zz', telekasten.follow_link, {})
+vim.keymap.set('n', '<leader>zt', telekasten.toggle_todo, {})
 EOF
 
 
