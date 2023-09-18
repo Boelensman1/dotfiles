@@ -60,7 +60,7 @@ let g:loaded_node_provider = 1
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all", -- either "all" or a list of languages
-  ignore_install = { "phpdoc", "agda", "hlsl", "menhir", "racket", "markdown_inline", "nickel", "terraform", "starlark", "firrtl" }, -- List of parsers to ignore installing
+  ignore_install = { "phpdoc", "agda", "hlsl", "menhir", "racket", "markdown_inline", "nickel", "terraform", "starlark", "firrtl", "haskell_persistent" }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { "c" },  -- list of language that will be disabled
