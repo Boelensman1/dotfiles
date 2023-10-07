@@ -8,6 +8,12 @@ call plug#begin('~/.dotfiles/vim+nvim/plugged')
 " sensible defaults
 Plug 'tpope/vim-sensible'
 
+" listen to editorconfig files
+Plug 'editorconfig/editorconfig-vim'
+
+" Status line & theme for status line
+Plug 'bling/vim-airline' | Plug 'morhetz/gruvbox'
+
 " load the shared plugins
 source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 
@@ -24,14 +30,6 @@ endif
 " -----------------------------------------------------------------
 " Language agnostic plugins
 " -----------------------------------------------------------------
-
-" Autocomplete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" Linter (needs linters to work)
-Plug 'scrooloose/syntastic'
-
-" don't show the preview autocomplete
-set completeopt=longest,menuone,preview
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -59,19 +57,34 @@ set background=dark
 " set crypt scheme
 set cm=blowfish2
 
-"""""""""""""""""""""""""""""""
-"  => Linter settings
-"""""""""""""""""""""""""""""""
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-"jsx
-let g:syntastic_javascript_checkers = ['eslint']
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+""""""""""""""""""""""""""""""
+" => Status line
+""""""""""""""""""""""""""""""
+" Always show the status line
+set laststatus=2
 
-"latex
-let g:syntastic_tex_checkers = []
+" Format the status line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = "\uE0B0"
+let g:airline_right_sep = "\uE0B2"
+let g:airline_symbols.linenr = "\uE0A1"
+let g:airline_symbols.modified = '+'
+let g:airline_symbols.readonly = "\uE0A2"
+let g:airline_symbols.crypt = "\uE60A"
+let g:airline_symbols.branch = "\uE0A0"
+let g:airline_symbols.paste = 'Paste'
+let g:airline_symbols.whitespace = ''
+let g:airline_symbols.space = ' '
+
+" Remove percentage
+let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
+
 
 " source the vim+nvim init file
 source ~/.dotfiles/vim+nvim/init.vim

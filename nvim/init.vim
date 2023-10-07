@@ -59,11 +59,10 @@ let g:loaded_node_provider = 1
 " Setup treesitter for syntax highlighting
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "all", -- either "all" or a list of languages
-  ignore_install = { "phpdoc", "agda", "hlsl", "menhir", "racket", "markdown_inline", "nickel", "terraform", "starlark", "firrtl", "haskell_persistent" }, -- List of parsers to ignore installing
+  ensure_installed =  { "c", "lua", "vim", "vimdoc", "query", "python", "javascript", "typescript", "json", "make", "markdown" },
+  auto_install = true,
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c" },  -- list of language that will be disabled
   },
 }
 EOF
@@ -377,12 +376,12 @@ set viminfo+=n~/.dotfiles/nvim/viminfo
 " autoclose the preview window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" reload the airline on vimenter, also to fix a bug
-au VimEnter * AirlineRefresh
-
 " load colorscheme
-" silent so we don't get errors when vundle is installing
+" silent so we don't get errors when plugin is installing
 silent! colorscheme gruvbox
+
+" use escape to exit terminal but not if we're in fzf
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
 
 if exists('&inccommand')
   set inccommand=nosplit

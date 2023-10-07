@@ -75,17 +75,15 @@ endif
 set ffs=unix,dos,mac
 
 " set font
-let os = substitute(system('uname'), "\n", "", "")
+"let os = substitute(system('uname'), "\n", "", "")
+"if os == "Darwin"
+    "set guifont=Meslo\ LG\ S\ for\ Powerline\ Book:h11
+"endif
 
-" set font
-if os == "Darwin"
-    set guifont=Meslo\ LG\ S\ for\ Powerline\ Book:h11
-endif
-
-if os == "Linux"
-    " set font for linux
-    au VimEnter * set guifont=Meslo\ LG\ S\ for\ Powerline\ 11
-endif
+"if os == "Linux"
+    "" set font for linux
+    "au VimEnter * set guifont=Meslo\ LG\ S\ for\ Powerline\ 11
+"endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -190,12 +188,6 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-" use escape to exit terminal
-if has("nvim")
-  " but not if we're in fzf
-  tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
-endif
-
 " use ; as :
 nnoremap ; :
 
@@ -215,34 +207,6 @@ au BufRead,BufNewFile .jshintrc setf json
 " Add shortcut to make current split 80 with (+space for number)
 map <Leader>8 :vertical resize 86<CR>
 
-
-""""""""""""""""""""""""""""""
-" => Status line
-""""""""""""""""""""""""""""""
-" Always show the status line
-set laststatus=2
-
-" Format the status line
-let g:airline_powerline_fonts = 1
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = "\uE0B0"
-let g:airline_right_sep = "\uE0B2"
-let g:airline_symbols.linenr = "\uE0A1"
-let g:airline_symbols.modified = '+'
-let g:airline_symbols.readonly = "\uE0A2"
-let g:airline_symbols.crypt = "\uE60A"
-let g:airline_symbols.branch = "\uE0A0"
-let g:airline_symbols.paste = 'Paste'
-let g:airline_symbols.whitespace = ''
-let g:airline_symbols.space = ' '
-
-" Remove percentage
-let g:airline_section_z = airline#section#create(['windowswap', 'linenr', ':%3v '])
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Plugin specific settings
