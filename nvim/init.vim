@@ -59,7 +59,20 @@ let g:loaded_node_provider = 1
 " Setup treesitter for syntax highlighting
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed =  { "c", "lua", "vim", "vimdoc", "query", "python", "javascript", "typescript", "json", "make", "markdown" },
+  ensure_installed =  {
+      "c",
+      "lua",
+      "vim",
+      "vimdoc",
+      "query",
+      "python",
+      "javascript",
+      "typescript",
+      "json",
+      "make",
+      "markdown",
+      "bash"
+  },
   auto_install = true,
   highlight = {
     enable = true,              -- false will disable the whole extension
