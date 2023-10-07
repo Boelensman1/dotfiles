@@ -159,5 +159,11 @@ source vim+nvim/install.sh
 echo '  Setting up tmux'
 source tmux/install.sh
 
+echo '  Downloading font'
+mkdir -p ./fonts/
+curl https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/IBMPlexMono.zip -L --output ./fonts/IBMPlexMono.zip
+unzip ./fonts/IBMPlexMono.zip -d ./fonts/IBMPlexMono
+rm -f ./fonts/IBMPlexMono.zip
+
 echo ''
 echo '  All installed!'
