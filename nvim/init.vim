@@ -300,6 +300,7 @@ require('formatter').setup({
     html = {prettier_config},
     css = {prettier_config},
     json = {prettier_config},
+    jsonc = {prettier_config},
     yaml = {prettier_config}
     }
 } )
