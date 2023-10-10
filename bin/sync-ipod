@@ -1,0 +1,16 @@
+#!/bin/sh
+
+sudo mount -t vfat -o rw,uid=1000,gid=1000 /dev/sde1 /mnt/iPod
+
+rsync -a --ignore-existing --info=progress2 --delete /mnt/AeroFS/Music /mnt/iPod
+rm -r /mnt/iPod/Playlists
+cp -r /mnt/AeroFS/Music/.playlists /mnt/iPod/Playlists
+
+cd /mnt/AeroFS/PersonalProjects/node/apps/beetsconverter/
+ts-node ./src/index.ts /home/wigger/AeroFS/Music/library.blb
+
+cp /mnt/AeroFS/PersonalProjects/node/apps/beetsconverter/out/* /mnt/iPod/.rockbox
+
+laspyt --clear
+
+sudo umount /mnt/iPod
