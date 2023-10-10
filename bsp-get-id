@@ -1,0 +1,10 @@
+in=$(bspc query -N)
+for i in $in
+    do 
+        name=$(bspc query -T -n $i | jq -r .client.instanceName)
+        if [[ ${name} = $1 ]]
+            then echo $i && exit
+        fi
+done
+
+exit 1
