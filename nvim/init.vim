@@ -259,7 +259,7 @@ lsp_config.efm.setup {
       typescript = {eslint, prettier},
       ["typescript.tsx"] = {eslint, prettier},
       typescriptreact = {eslint, prettier},
-      html = {eslint, prettier},
+      html = {prettier},
       css = {eslint, prettier},
       yaml = {prettier}
     },
