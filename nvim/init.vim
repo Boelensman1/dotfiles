@@ -8,6 +8,11 @@ call plug#begin('~/.dotfiles/vim+nvim/plugged')
 " load the shared plugins
 source ~/.dotfiles/vim+nvim/sharedPlugins.vim
 
+function! IsOnSomeParticularMachine(hostname)
+    return match(system("echo -n $HOST"), a:hostname) >= 0
+endfunction
+
+
 " -----------------------------------------------------------------
 " Language agnostic plugins
 " -----------------------------------------------------------------
@@ -16,6 +21,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " lsp server
 Plug 'neovim/nvim-lspconfig'
+if !IsOnSomeParticularMachine('MainPc')
+    " stop lsp server when nvim loses focus to save RAM
+    Plug 'hinell/lsp-timeout.nvim'
+endif
 
 " autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -317,6 +326,7 @@ local opts = {noremap = true, silent = true}
 vim.api.nvim_set_keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>e",  "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>a",  "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>h",  "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 
 -- trouble config
 require("trouble").setup {
