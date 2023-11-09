@@ -108,6 +108,10 @@ lsp_config.tsserver.setup {
 }
 
 
+lsp_config.eslint.setup {
+  capabilities = capabilities
+}
+
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -195,99 +199,6 @@ _G.s_tab_complete = function()
     return t "<S-Tab>"
   end
 end
-
-
--- setup eslint
-local eslint = {
-  lintCommand = "npx --no-install eslint_d -f unix --stdin --stdin-filename ${INPUT}",
-  lintStdin = true,
-  lintFormats = {"%f:%l:%c: %m"},
-  lintIgnoreExitCode = true,
-}
-
-local function eslint_config_exists()
-  local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
-
-  if not vim.tbl_isempty(eslintrc) then
-    return true
-  end
-
-  if vim.fn.filereadable("package.json")==1 then
-    if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-      return true
-    end
-  end
-
-  return false
-end
-
--- setup prettier
-local function get_prettier_config_location()
-  local prettierrc = vim.fn.glob(".prettierrc*", 0, 1)
-
-  if not vim.tbl_isempty(prettierrc) then
-    return prettierrc[1]
-  end
-
-  if vim.fn.filereadable("package.json")==1 then
-    if vim.fn.json_decode(vim.fn.readfile("package.json"))["prettier"] then
-      return true
-    end
-  end
-
-  return false
-end
-
-local prettier = {
-  formatCommand = (
-    function()
-        local config_location = get_prettier_config_location()
-        if config_location == false then
-            return "npx --no-install prettier"
-        end
-
-        if config_location == true then
-            return "npx --no-install prettier"
-        end
-
-        return ("npx --no-install prettier --config " .. config_location)
-    end
-  )(),
-  formatStdin = true
-}
-
-lsp_config.efm.setup {
-  init_options = {documentFormatting = true, completion=false},
-  settings = {
-    rootMarkers = {".git/", "package.json"},
-    languages = {
-      json = {prettier},
-      javascript = {eslint, prettier},
-      javascriptreact = {eslint, prettier},
-      ["javascript.jsx"] = {eslint, prettier},
-      typescript = {eslint, prettier},
-      ["typescript.tsx"] = {eslint, prettier},
-      typescriptreact = {eslint, prettier},
-      html = {prettier},
-      css = {prettier},
-      yaml = {prettier}
-    },
-    log_level = 1,
-    log_file = '/tmp/efm.log'
-  },
-  filetypes = {
-    "json",
-    "javascript",
-    "javascriptreact",
-    "javascript.jsx",
-    "typescript",
-    "typescript.tsx",
-    "typescriptreact",
-    "html",
-    "css",
-    "yaml"
-  },
-}
 EOF
 
 "" formatter setup
@@ -317,7 +228,7 @@ require('formatter').setup({
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.json,*.ts,*.yaml,*.html,*.tsx,*.jsx,*.css FormatWrite
+  autocmd BufWritePost *.js,*.json,*.ts,*.yaml,*.html,*.tsx,*.jsx,*.css,*.cjs FormatWrite
 augroup END
 ]], true)
 
