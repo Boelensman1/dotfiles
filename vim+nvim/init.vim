@@ -331,11 +331,6 @@ map <LocalLeader>cd :lcd %:p:h<cr>:pwd<CR>
 set title " rename terminal windows
 set titlestring=nvim:\ %{fnamemodify(getcwd(),':t')}
 
-" set tmux window name to current working dir
-if exists('$TMUX')
-    call system("tmux rename-window nvim: " . fnamemodify(getcwd(), ':t'))
-endif
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -406,3 +401,12 @@ function! <SID>BufcloseCloseIt()
         execute("bdelete! ".l:currentBufNum)
     endif
 endfunction
+
+" rename tmux window to folder we're in, on opening vim
+augroup tmux
+  autocmd!
+  if exists('$TMUX')
+    autocmd VimEnter * call system("tmux rename-window vim-" . fnamemodify(getcwd(), ':t'))
+    autocmd VimLeave,FocusLost * call system("tmux set-window-option automatic-rename")
+  endif
+augroup END
