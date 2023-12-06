@@ -1,16 +1,42 @@
 #!/bin/sh
 
-sudo mount -t vfat -o rw,uid=1000,gid=1000 /dev/sde1 /mnt/iPod
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # linux
+    sudo mount -t vfat -o rw,uid=1000,gid=1000 UUID=3C223E68-895B-32F0-B458-8AD7369C91E3 /mnt/iPod
+    MOUNTDIR="/mnt"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # macos
+    MOUNTDIR="/Volumes"
+fi
 
-rsync -a --ignore-existing --info=progress2 --delete /mnt/AeroFS/Music /mnt/iPod
-rm -r /mnt/iPod/Playlists
-cp -r /mnt/AeroFS/Music/.playlists /mnt/iPod/Playlists
+if [ -z ${MOUNTDIR+x} ]; then echo "os not supported"; exit 1; fi
 
-cd /mnt/AeroFS/PersonalProjects/node/apps/beetsconverter/
-ts-node ./src/index.ts /home/wigger/AeroFS/Music/library.blb
+IPODDIR=$MOUNTDIR"/iPod"
+MUSICDIR=$MOUNTDIR"/AeroFS/Music"
 
-cp /mnt/AeroFS/PersonalProjects/node/apps/beetsconverter/out/* /mnt/iPod/.rockbox
+if test -d $IPODDIR/.rockbox; then
+    echo "Found iPod dir"
+else
+    echo "iPod dir not found!"
+    return 2
+fi
+
+
+rsync -a --ignore-existing --info=progress2 --delete $MUSICDIR $IPODDIR
+rm -r $IPODDIR/Playlists
+cp -r $MUSICDIR/.playlists $IPODDIR/Playlists
+
+cd $MOUNTDIR/AeroFS/PersonalProjects/node/apps/beetsconverter/
+npx ts-node ./src/index.ts $MUSICDIR/library.blb
+
+cp $MOUNTDIR/AeroFS/PersonalProjects/node/apps/beetsconverter/out/* $IPODDIR/.rockbox
 
 laspyt --clear
 
-sudo umount /mnt/iPod
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # linux
+    sudo umount $IPODDIR
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # macos
+    diskutil unmount $IPODDIR
+fi
