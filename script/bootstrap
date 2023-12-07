@@ -141,8 +141,9 @@ setup_gitconfig
 install_dotfiles
 
 if [ "$(uname -s)" == "Darwin" ]
+then
     # Set macOS defaults
-    $ZSH/macos/set-defaults.sh
+    source ./macos/set-defaults.sh
 fi
 
 
