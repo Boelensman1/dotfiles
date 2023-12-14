@@ -2,7 +2,7 @@
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # linux
-    sudo mount -t vfat -o rw,uid=1000,gid=1000 UUID=3C223E68-895B-32F0-B458-8AD7369C91E3 /mnt/iPod
+    sudo mount -t vfat -o rw,uid=1000,gid=1000 UUID=5E82-9126 /mnt/iPod
     MOUNTDIR="/mnt"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # macos
@@ -18,7 +18,7 @@ if test -d $IPODDIR/.rockbox; then
     echo "Found iPod dir"
 else
     echo "iPod dir not found!"
-    return 2
+    exit 2
 fi
 
 
