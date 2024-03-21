@@ -237,6 +237,7 @@ let g:tex_flavor = 'latex'
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method= 'latexmk'
 let g:vimtex_compiler_progname = 'nvr'
+" let g:vimtex_syntax_enabled = 0 " let treesitter handle this
 let g:vimtex_compiler_latexrun = {
     \ 'background' : 1,
     \ 'build_dir' : 'latex.out',
