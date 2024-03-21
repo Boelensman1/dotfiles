@@ -21,10 +21,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " lsp server
 Plug 'neovim/nvim-lspconfig'
-if !IsOnSomeParticularMachine('MainPc')
-    " stop lsp server when nvim loses focus to save RAM
-    Plug 'hinell/lsp-timeout.nvim'
-endif
 
 " autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
