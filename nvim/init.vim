@@ -103,14 +103,8 @@ vim.o.completeopt = "menuone,noselect"
 
 local lsp_config = require('lspconfig')
 
-lsp_config.tsserver.setup {
-    cmd = { "typescript-language-server", "--stdio" }
-}
-
-
-lsp_config.eslint.setup {
-  capabilities = capabilities
-}
+lsp_config.tsserver.setup {}
+lsp_config.eslint.setup{}
 
 local has_words_before = function()
   unpack = unpack or table.unpack
