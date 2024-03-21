@@ -80,12 +80,15 @@ require'nvim-treesitter.configs'.setup {
       "json",
       "make",
       "markdown",
-      "bash"
+      "bash",
+      "latex"
   },
   auto_install = true,
   highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
+      enable = true,
+      disable = { "latex" },
+      additional_vim_regex_highlighting = { "latex", "markdown" },
+  }
 }
 EOF
 
