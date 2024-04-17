@@ -62,8 +62,6 @@ Plug 'benjie/local-npm-bin.vim'
 " -----------------------------------------------------------------
 " Always match html tags
 Plug 'Valloric/MatchTagAlways', {'for': ['javascript.jsx', 'html', 'xhtml']}
-" Helper function for closing html tags (press >)
-Plug 'alvan/vim-closetag', {'for': ['html', 'xhtml', 'html', 'javascript.jsx', 'javascript']}
 
 " -----------------------------------------------------------------
 " LATEX

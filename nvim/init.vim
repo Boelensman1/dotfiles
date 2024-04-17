@@ -49,6 +49,9 @@ Plug 'renerocksai/telekasten.nvim'
 Plug 'kevinhwang91/promise-async'
 Plug 'kevinhwang91/nvim-fundo'
 
+" autoclose tags
+Plug 'windwp/nvim-ts-autotag'
+
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -64,6 +67,9 @@ let g:loaded_node_provider = 1
 " Setup treesitter for syntax highlighting
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+  },
   ensure_installed =  {
       "c",
       "lua",
