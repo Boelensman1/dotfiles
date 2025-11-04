@@ -5,13 +5,13 @@ set -x
 # exit when any command fails
 set -e
 
-nix-channel --update
-nix-env -iA nixpkgs.nix 
+sudo nix-channel --update
+sudo nix-env -iA nixpkgs.nix 
 sudo launchctl remove org.nixos.nix-daemon 
+sleep 2
 sudo launchctl load /Library/LaunchDaemons/org.nixos.nix-daemon.plist 
 # wait for daemon to load again
-sleep 2
-nix-channel --update
-nix-channel --update darwin  # don't think this one is needed
+sleep 10
+sudo nix-channel --update
 sudo -i nix-channel --update
-darwin-rebuild switch
+sudo darwin-rebuild switch
