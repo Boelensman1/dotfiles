@@ -322,6 +322,9 @@ if exists('&inccommand')
   set inccommand=nosplit
 endif
 
+" add shortcut inputting escape into the terminal for use in e.g. claude-cli
+tnoremap <C-e> <Esc>
+
 " set terminal colors
 " dark0 + gray
 let g:terminal_color_0 = "#282828"
