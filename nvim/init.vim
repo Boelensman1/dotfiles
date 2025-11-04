@@ -22,6 +22,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " lsp server
 Plug 'neovim/nvim-lspconfig'
 
+" Optimizations for big files
+Plug 'LunarVim/bigfile.nvim'
+
 " autocomplete
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
