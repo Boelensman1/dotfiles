@@ -244,9 +244,10 @@ vim.api.nvim_set_keymap("n", "<Leader>h",  "<cmd>lua vim.lsp.buf.hover()<CR>", o
 
 -- trouble config
 require("trouble").setup {
-  auto_open = true,
-  auto_close = true,
-  height = 5
+  height = 5,
+  modes = {
+    diagnostics = { auto_open = true, auto_close = true, }
+  }
 }
 
 -- telescope setup
