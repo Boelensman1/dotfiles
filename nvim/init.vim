@@ -43,7 +43,7 @@ Plug 'folke/trouble.nvim'
 
 " File finding
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim' , { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope.nvim' , { 'branch': 'master' }
 
 " Zetelkasten
 Plug 'renerocksai/telekasten.nvim'
@@ -67,35 +67,48 @@ source ~/.dotfiles/vim+nvim/init.vim
 " enable node provider
 let g:loaded_node_provider = 1
 
-" Setup treesitter for syntax highlighting
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
+" setup treesitter for syntax highlighting
+lua <<eof
+require'nvim-treesitter'.setup {
   autotag = {
     enable = true,
   },
-  ensure_installed =  {
-      "c",
-      "lua",
-      "vim",
-      "vimdoc",
-      "query",
-      "python",
-      "javascript",
-      "typescript",
-      "json",
-      "make",
-      "markdown",
-      "bash",
-      "latex"
-  },
-  auto_install = true,
   highlight = {
       enable = true,
       disable = { "latex" },
       additional_vim_regex_highlighting = { "latex", "markdown" },
   }
 }
-EOF
+local ts_langs = {
+  "c",
+  "lua",
+  "vim",
+  "vimdoc",
+  "query",
+  "python",
+  "javascript",
+  "typescript",
+  "json",
+  "make",
+  "markdown",
+  "bash",
+  "latex",
+  "beancount",
+}
+
+-- install parsers (no-op if already installed)
+require('nvim-treesitter').install(ts_langs)
+
+-- enable tree-sitter highlighting for these filetypes
+vim.api.nvim_create_autocmd('filetype', {
+  pattern = ts_langs,
+  callback = function(args)
+    -- args.buf is explicit, but vim.treesitter.start() with no args
+    -- also works on the current buffer.
+    vim.treesitter.start(args.buf)
+  end,
+})
+eof
 
 " setup forever undo
 lua <<EOF
@@ -109,10 +122,25 @@ lua <<EOF
 
 vim.o.completeopt = "menuone,noselect"
 
-local lsp_config = require('lspconfig')
+-- Configure LSP servers using vim.lsp.config (Neovim 0.11+)
+vim.lsp.config.ts_ls = {}
+vim.lsp.config.eslint = {}
+--vim.lsp.config.beancount = {
+--    init_options = {
+--        journal_file = "/Volumes/AeroFS/beancounter/ledgers/Wigger Boelens/main.beancount"
+--    }
+--}
 
-lsp_config.tsserver.setup {}
-lsp_config.eslint.setup{}
+-- Enable the configured servers
+vim.lsp.enable({'ts_ls', 'eslint'})
+--vim.lsp.enable({'ts_ls', 'eslint', 'beancount'})
+
+vim.filetype.add({
+  extension = {
+    beancount = "beancount",
+    bean = "beancount",
+  },
+})
 
 local has_words_before = function()
   unpack = unpack or table.unpack
