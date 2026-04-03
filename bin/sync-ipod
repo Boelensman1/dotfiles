@@ -26,6 +26,7 @@ rsync -a --ignore-existing --info=progress2 --delete $MUSICDIR $IPODDIR
 rm -r $IPODDIR/Playlists
 cp -r $MUSICDIR/.playlists $IPODDIR/Playlists
 
+echo "Updating rockbox db"
 cd $MOUNTDIR/AeroFS/PersonalProjects/node/apps/beetsconverter/
 npx ts-node ./src/index.ts $MUSICDIR/library.blb
 
