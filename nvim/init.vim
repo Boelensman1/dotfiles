@@ -45,9 +45,6 @@ Plug 'folke/trouble.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim' , { 'branch': 'master' }
 
-" Zetelkasten
-Plug 'renerocksai/telekasten.nvim'
-
 " Forever undo
 Plug 'kevinhwang91/promise-async'
 Plug 'kevinhwang91/nvim-fundo'
@@ -303,24 +300,6 @@ vim.keymap.set('n', '<leader>ff', scope_builtin.find_files, {}) -- find files
 vim.keymap.set('n', '<leader>fa', scope_builtin.live_grep, {}) -- find using Ag
 
 
--- zettelkasten setup
-local tkhome = vim.fn.expand("~/AeroFS/notes")
-local telekasten = require('telekasten')
-telekasten.setup({
-  home = tkhome, -- location of notes
-  -- take_over_my_home = true,
-  extension    = ".md",
-  templates    = tkhome .. '/' .. 'templates',
-  template_new_note = tkhome .. '/' .. 'templates/new_note.md',
-})
-
-
-vim.keymap.set('n', '<leader>z',  telekasten.panel, {})
-vim.keymap.set('n', '<leader>zf', telekasten.find_notes, {})
-vim.keymap.set('n', '<leader>zd', telekasten.find_daily_notes, {})
-vim.keymap.set('n', '<leader>zg', telekasten.search_notes, {})
-vim.keymap.set('n', '<leader>zz', telekasten.follow_link, {})
-vim.keymap.set('n', '<leader>zt', telekasten.toggle_todo, {})
 EOF
 
 
