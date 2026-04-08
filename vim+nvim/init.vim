@@ -31,6 +31,9 @@ set backup
 set undodir=~/.dotfiles/vim+nvim/_undo/
 set undofile
 
+
+let g:python3_host_prog = '/run/current-system/sw/bin/python3'
+
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
     exe "normal mz"
@@ -275,10 +278,8 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 " Use the minimal NERDtree layout (no help etc. on top)
 let g:NERDTreeMinimalUI=1
 
-" Open NERDtree tab when in gui
-if exists('neovim_dot_app') || has("gui_running")
-    au VimEnter *  NERDTree
-endif
+" enable dark mode
+set bg=dark
 
 " set shortcuts for NERDtree
 map <Leader>n :NERDTreeToggle<CR>
