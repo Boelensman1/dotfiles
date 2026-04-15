@@ -1,0 +1,84 @@
+" Minimal nvimrc for remote VMs. Standalone — does not source the full config.
+
+" Extend runtimepath so vim-plug (in the shared dotfiles location) is findable
+set rtp^=~/.dotfiles/vim+nvim
+
+" Leader (must be set before any <Leader> mapping)
+let mapleader = ","
+let maplocalleader = ',,'
+
+" Persistent state — reuse the shared dotfiles dirs
+set dir=~/.dotfiles/vim+nvim/_swap//
+set backupdir=~/.dotfiles/vim+nvim/_backup/
+set backup
+set undodir=~/.dotfiles/vim+nvim/_undo/
+set undofile
+set undolevels=1000
+set undoreload=10000
+set viminfo+=n~/.dotfiles/nvim/viminfo
+
+" Plugins — shared plugged dir with the full config
+call plug#begin('~/.dotfiles/vim+nvim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdtree'
+Plug 'morhetz/gruvbox'
+call plug#end()
+
+" Overrides — must come after plug#end() so they win over vim-sensible
+set termguicolors
+set mouse=a
+set ignorecase
+set smartcase
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set relativenumber
+set scrolloff=3
+set splitright
+
+" Jump to last cursor position on reopen
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" sudo save
+command! W w !sudo tee % > /dev/null
+
+" better split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" move logically up and down (on wrapped lines)
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" use ; as :
+nnoremap ; :
+
+" more logical Y (default was alias for yy)
+nnoremap Y y$
+
+" make current split 86 wide (80 + space for line numbers)
+map <Leader>8 :vertical resize 86<CR>
+
+" cd to the current file's directory
+map <leader>cd :cd %:p:h<cr>:pwd<CR>
+
+" open terminal in vsplit
+map <leader>t :vsp<bar>terminal<cr>
+
+" use escape to exit terminal mode
+tnoremap <Esc> <c-\><c-n>
+
+" send escape into the terminal (for use in e.g. claude-cli)
+tnoremap <C-e> <Esc>
+
+" NERDtree
+let g:NERDTreeMinimalUI = 1
+map <Leader>n :NERDTreeToggle<CR>
+
+" Colorscheme
+set bg=dark
+silent! colorscheme gruvbox
